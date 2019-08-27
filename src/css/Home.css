@@ -1,0 +1,144 @@
+.home-page {
+    width: 100%;
+    height: 100%;
+
+    background-image: url("https://lolstatic-a.akamaihd.net/lolkit/1.1.6/resources/images/bg-default.jpg");
+    background-size: cover;
+    background-position: top;
+    position: absolute;
+
+}
+
+.home-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.home-desc {
+    color: white;
+    font-size: 65px;
+    user-select: none;
+    width: 850px;
+    text-align: center;
+    font-family: Roboto;
+    line-height: 75px;
+    font-weight: bolder;
+    margin: 170px auto auto;
+}
+
+.Home-Form {
+    background: rgba(0, 0, 4, 0.5);
+    width: 600px;
+    height: 90px;
+    user-select: none;
+    position: absolute;
+    border: 2px solid white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Home-Form input {
+    height: inherit;
+    width: 350px;
+    color: white;
+    user-select: none;
+    font-size: 30px;
+    font-family: Calibri;
+    background: transparent;
+    border: transparent solid 0;
+}
+
+.Home-Form select {
+    background: transparent;
+    border: transparent 0 solid;
+    border-right: 1px white solid;
+    color: white;
+    position: absolute;
+    right: 105px;
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: Calibri;
+    height: inherit;
+
+}
+
+.Home-Form i {
+    position: absolute;
+    right: 0;
+    padding-top: 10px;
+    width: 100px;
+    text-align: center;
+    height: inherit;
+    color: white;
+    font-size: 60px;
+}
+
+
+.Home-Form input:focus {
+    outline: none;
+}
+
+.Home-Form select:focus {
+    outline: none;
+}
+
+.Home-Form input::placeholder {
+    color: white;
+    font-size: 30px;
+    font-family: Calibri;
+}
+
+.e {
+    color: red;
+    text-align: center;
+    width: inherit;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.champ-rotation-header {
+    color: white;
+    position: absolute;
+    width: 100%;
+    font-size: 34px;
+    font-weight: bolder;
+    font-family: Calibri;
+    text-align: center;
+    margin: 700px auto auto;
+}
+
+.champ-date {
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+.champ-rotation {
+    width: 1200px;
+    margin: 800px auto auto;
+    text-align: center;
+}
+
+.champ-rotation div {
+    color: white;
+    padding-top: 140px;
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: Calibri;
+    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Brand_0.jpg");
+    width: 150px;
+    text-align: center;
+    margin: 3px;
+    opacity: 0.8;
+    border-radius: 15px;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    height: 117px;
+}
+
+.champ-rotation div:hover {
+    opacity: 1;
+}

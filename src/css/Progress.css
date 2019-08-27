@@ -1,0 +1,11 @@
+.progress-container{
+    width: 1500px;
+    height: 600px;
+    text-align: center !important;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+;
+}

@@ -1,0 +1,16 @@
+@import "font-awesome/css/font-awesome.min.css";
+@import "Navbar.css";
+@import "Home.css";
+@import "Statistics.css";
+@import "records.css";
+@import "History.css";
+@import "Live.css";
+@import "Progress.css";
+@import "~react-vis/dist/styles/legends.scss";
+@import "MatchDetails.css";
+
+body{
+    margin: 0;
+    padding: 0;
+    background:#091A26 ;
+}

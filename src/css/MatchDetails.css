@@ -1,0 +1,79 @@
+.match-details {
+    position: absolute;
+    width: 1300px;
+    height: 700px;
+    top: 150px;
+    background: #091A26;
+    border-radius: 15px;
+    border: 2px white solid;
+    z-index: 1;
+}
+
+.match-details i {
+    z-index: 3000;
+    font-size: 50px;
+    position: absolute;
+    right: -15px;
+    color: white;
+    top: -15px;
+}
+
+.details-title {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-family: Calibri;
+    font-weight: bolder;
+}
+
+.performances-container {
+    width: 1250px;
+    position: relative;
+    top: 0;
+    margin: 20px auto auto;
+    height: 200px;
+}
+
+.performance-background {
+    width: inherit;
+    height: inherit;
+    z-index: -100;
+    opacity: 0.5;
+    position: absolute;
+    background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Brand_0.jpg");
+    background-size: cover;
+}
+
+.performance-box {
+    position: relative;
+    background: black;
+    z-index: -2;
+    border: 2px white solid;
+    width: 200px;
+    height: 100px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.performance-title{
+    margin-top: 5px;
+    font-family: Calibri;
+    font-weight: bolder;
+    color: white ;
+}
+.performance-result{
+    color: #00AB3A;
+    font-family: Calibri;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.performance-player{
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    font-weight: bolder;
+    font-family: Calibri;
+    font-size: 20px;
+}
