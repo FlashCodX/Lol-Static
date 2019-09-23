@@ -1,79 +1,198 @@
-.match-details {
+.details {
     position: absolute;
-    width: 1300px;
-    height: 700px;
-    top: 150px;
-    background: #091A26;
-    border-radius: 15px;
-    border: 2px white solid;
+    margin: auto;
+    width: 70%;
+    padding: 1rem;
+    height: fit-content;
+    background: #0E1A2F;
     z-index: 1;
+    top: 5vh;
+    left: 0;
+    right: 0;
 }
 
-.match-details i {
-    z-index: 3000;
-    font-size: 50px;
+.details > i:first-child {
     position: absolute;
-    right: -15px;
-    color: white;
-    top: -15px;
+    right: -1.3rem;
+
+    top: -1.3rem;
+    font-size: 1.7rem;
+    background: transparent;
 }
 
-.details-title {
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    font-family: Calibri;
-    font-weight: bolder;
-}
-
-.performances-container {
-    width: 1250px;
+.details > main {
+    display: grid;
     position: relative;
-    top: 0;
-    margin: 20px auto auto;
-    height: 200px;
+    grid-gap: .3rem;
 }
 
-.performance-background {
-    width: inherit;
-    height: inherit;
-    z-index: -100;
-    opacity: 0.5;
-    position: absolute;
-    background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Brand_0.jpg");
+.details > main > div:first-child {
+    font-size: 2rem;
+
+    padding: .3rem 0;
+}
+
+.details > main > .performances {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, 250px);
+    overflow-x: auto;
+    grid-gap: 1.2rem;
+}
+
+.details > main > .performances > section {
+    display: grid;
     background-size: cover;
-}
-
-.performance-box {
+    margin: .3rem 0;
+    border-radius: .3rem;
+    border: none;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: .3rem;
     position: relative;
-    background: black;
-    z-index: -2;
-    border: 2px white solid;
-    width: 200px;
-    height: 100px;
-    display: inline-block;
-    margin-right: 20px;
-    margin-left: 20px;
+    align-items: start;
+    padding: .5rem .3rem;
+    justify-items: start;
+    text-indent: .2rem;
 }
 
-.performance-title{
-    margin-top: 5px;
-    font-family: Calibri;
-    font-weight: bolder;
-    color: white ;
+
+.details >main >.performances >section >*{
 }
-.performance-result{
+
+.details > main > .performances > section > div:first-child{
+    font-size: 1.1rem;
+}
+
+.details > main > .performances > section > div:nth-child(2n){
     color: #00AB3A;
-    font-family: Calibri;
-    font-weight: bolder;
-    font-size: 25px;
+    text-indent: .5rem;
+    font-size: 1.3rem;
+}
+.details > main > .performances > section > div:last-child {
+    font-size: 1.1rem;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    opacity: .5;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 
-.performance-player{
-    color: white;
-    position: absolute;
-    bottom: 10px;
-    font-weight: bolder;
-    font-family: Calibri;
-    font-size: 20px;
+
+.details > main > .team-header {
+    display: grid;
+    margin: 1rem 0 auto;
+    border: 3px solid white;
+    background: rgba(0, 181, 204, .3);
+
+
+    padding: .4rem;
+    overflow-x: auto;
+    justify-items: center;
+    grid-gap: .5rem;
+    align-items: center;
+    font-size: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.details > main > .team-header > section {
+    display: grid;
+    grid-gap: .5rem;
+    font-size: .9rem;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.details > main > .team-header > section > div:nth-child(2n) {
+    font-size: 1.3rem;
+}
+
+
+.details > main > .team-header > .bans {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6, auto);
+}
+
+.details > main > .team-header .bans > img {
+    width: 30px;
+    margin: 0 .3rem;
+    border-radius: 50%;
+}
+
+
+.details > main > .players {
+    display: grid;
+    width: 100%;
+    border: 2px solid white;
+    overflow-x: auto;
+    position: relative;
+    grid-gap: .5rem;
+}
+
+.details > main > .players > section {
+    display: grid;
+    align-items: center;
+    padding: .2rem;
+    grid-gap: .8rem;
+    justify-items: center;
+    font-size: .9rem;
+    border-bottom: 2px solid white;
+
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.details > main > .players > section > section > div:nth-child(2n) {
+    font-size: 1.4rem;
+}
+
+.details > main > .players > section > .items {
+
+    display: grid;
+    align-items: center;
+    grid-gap: .3rem;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.details > main > .players > section > div:nth-child(2n) {
+    font-size: 1.1rem;
+}
+
+.details > main > .players > section > .items > * {
+    width: 30px;
+}
+
+
+.details > main > .players > section > img:first-child {
+    background: red;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.details > main > .players > section > .spells {
+    display: grid;
+
+    grid-gap: .5rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.details > main > .players > section > .spells > img {
+    width: 30px;
+
+}
+
+
+@media (max-width: 700px) {
+    .details {
+        width: 90%;
+    }
+
+    .details > main > .team-header {
+        grid-template-columns: repeat(6, 250px);
+    }
+
+
 }

@@ -1,144 +1,180 @@
-.home-page {
+/* repeat(auto-fit, minmax(160px,1fr))*/
+
+.home > .content-wrapper {
+    display: grid;
+    margin: auto;
     width: 100%;
-    height: 100%;
-
-    background-image: url("https://lolstatic-a.akamaihd.net/lolkit/1.1.6/resources/images/bg-default.jpg");
-    background-size: cover;
-    background-position: top;
-    position: absolute;
-
-}
-
-.home-content {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    overflow-y: scroll;
-}
-
-.home-desc {
-    color: white;
-    font-size: 65px;
-    user-select: none;
-    width: 850px;
     text-align: center;
-    font-family: Roboto;
-    line-height: 75px;
+}
+
+/*HEADER FRONT PAGE*/
+.home > .content-wrapper > header {
+    display: grid;
+    margin: 10vh auto;
+    grid-template-columns: minmax(auto, 700px);
+    font-size: 4rem;
+}
+
+/************************/
+
+
+/*INPUT FORM  FRONT PAGE*/
+.home > .content-wrapper .section-a > input, select, i {
+    color: white;
     font-weight: bolder;
-    margin: 170px auto auto;
-}
-
-.Home-Form {
-    background: rgba(0, 0, 4, 0.5);
-    width: 600px;
-    height: 90px;
-    user-select: none;
-    position: absolute;
-    border: 2px solid white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.Home-Form input {
-    height: inherit;
-    width: 350px;
-    color: white;
-    user-select: none;
-    font-size: 30px;
-    font-family: Calibri;
-    background: transparent;
-    border: transparent solid 0;
-}
-
-.Home-Form select {
-    background: transparent;
-    border: transparent 0 solid;
-    border-right: 1px white solid;
-    color: white;
-    position: absolute;
-    right: 105px;
-    font-size: 30px;
-    font-weight: bolder;
-    font-family: Calibri;
-    height: inherit;
-
-}
-
-.Home-Form i {
-    position: absolute;
-    right: 0;
-    padding-top: 10px;
-    width: 100px;
-    text-align: center;
-    height: inherit;
-    color: white;
-    font-size: 60px;
-}
-
-
-.Home-Form input:focus {
     outline: none;
+    padding: .7rem;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 1.7rem;
 }
 
-.Home-Form select:focus {
-    outline: none;
+.home > .content-wrapper .section-a input {
+    border-left: 4px white solid;
+    border-bottom: 4px white solid;
+    border-top: 4px white solid;
+    border-right: 0;
+    width: 70%;
 }
 
-.Home-Form input::placeholder {
+.home > .content-wrapper .section-a input::placeholder {
     color: white;
-    font-size: 30px;
-    font-family: Calibri;
+    text-indent: 5px;
 }
 
-.e {
+.home > .content-wrapper .section-a a i {
+    font-size: 50px;
+    padding: 1.1rem;
+    border-right: 4px white solid;
+    border-top: 4px white solid;
+    border-bottom: 4px white solid;
+}
+
+.home > .content-wrapper .section-a select {
+    border-right: 4px white solid;
+    border-bottom: 4px white solid;
+    border-top: 4px white solid;
+    border-left: 0;
+
+}
+
+.home > .content-wrapper .section-a {
+    display: flex;
+    position: relative;
+    margin: auto auto 5rem;
+}
+.home > .content-wrapper .section-a >label{
+    position: absolute;
+    top:90px;
+display: none;
     color: red;
-    text-align: center;
-    width: inherit;
-    font-size: 30px;
-    font-weight: bolder;
+    left: 20px;
+    font-size: 1.3rem;
 }
 
-.champ-rotation-header {
-    color: white;
+.home >.content-wrapper >.section-a >.loading{
+    position: absolute;
+    bottom: 76%;
+    right: 8.7%;
+    width: 40px;
+}
+.home >.content-wrapper >.section-a >.loading >img{
     position: absolute;
     width: 100%;
-    font-size: 34px;
-    font-weight: bolder;
-    font-family: Calibri;
-    text-align: center;
-    margin: 700px auto auto;
 }
 
-.champ-date {
-    margin-top: 5px;
-    font-size: 25px;
+.home > .content-wrapper .section-a >label >i{
+    color: red;
 }
 
-.champ-rotation {
-    width: 1200px;
-    margin: 800px auto auto;
-    text-align: center;
+/********************************************/
+
+
+/*CHAMPION ROTATION */
+.home > .content-wrapper .section-b > label {
+    font-size: 2.2rem;
+    margin-bottom: 3vh;
 }
 
-.champ-rotation div {
-    color: white;
-    padding-top: 140px;
-    font-size: 30px;
-    font-weight: bolder;
-    font-family: Calibri;
-    background-image: url("https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Brand_0.jpg");
-    width: 150px;
-    text-align: center;
-    margin: 3px;
-    opacity: 0.8;
-    border-radius: 15px;
-    background-position: center;
-    background-size: cover;
-    display: inline-block;
-    height: 117px;
+.home > .content-wrapper .section-b .section-b1 > div > img {
+    width: inherit;
+    z-index: -1;
+
 }
 
-.champ-rotation div:hover {
-    opacity: 1;
+.home > .content-wrapper .section-b {
+    display: grid;
+    width: 80%;
+    margin: auto;
+
 }
+
+.home > .content-wrapper .section-b1 {
+    display: grid;
+    align-items: center;
+
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    width: 1fr;
+}
+
+.home > .content-wrapper .section-b .section-b1 > div {
+    width: 200px;
+    background: rgba(0, 0, 0, 0.6);
+    position: relative;
+    margin: auto;
+    border: 2px white solid;
+}
+
+.home > .content-wrapper .section-b .section-b1 > div > label {
+    font-size: 1.5rem;
+}
+
+.home > .content-wrapper .section-b  .section-b1 >div >.roles {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.home > .content-wrapper .section-b .section-b1 > div section > img {
+    width: 3rem;
+    margin: 0 1rem;
+}
+
+/******************************/
+
+
+/*MEDIA QUERIES FOR MOBILE */
+@media (max-width: 700px) {
+    .home > .content-wrapper > header {
+        font-size: 2rem;
+    }
+
+    .home > .content-wrapper .section-a >label{
+        top: 80px;
+    }
+
+    .home > .content-wrapper .section-a input, select, i {
+        font-size: 15px;
+    }
+
+    .home > .content-wrapper .section-a a i {
+        font-size: 35px;
+
+    }
+
+    .home > .content-wrapper .section-b1{
+        margin: auto;
+    }
+
+    .home > .content-wrapper .section-b > label {
+        font-size: 1.5rem;
+        margin-bottom: 3vh;
+    }
+
+
+}
+
+/**************************************************/
+
+
+

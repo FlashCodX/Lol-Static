@@ -1,62 +1,102 @@
-.records-container {
-    width: 1200px;
-    height: 600px;
-    overflow-y: auto;
-    text-align: left;
-    margin: 10px auto auto;
-}
-::-webkit-scrollbar {
-    width: 0;
+
+.re-warning {
+    width: 60%;
+    font-size: 1rem;
+    margin: auto;
+    text-align: start;
 }
 
-.box-bg{
-    background-size: cover;
-    background-image: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Brand_0.jpg");
+.re-warning > i {
+    color: red;
+    background: transparent;
+}
+
+
+.records {
+    width: 60%;
+    display: grid;
+    margin: 1rem auto;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    grid-gap: 1rem;
+}
+
+.records .records-wrapper {
+    display: grid;
+    justify-items: center;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+}
+
+.records .records-wrapper > .box {
+    width: 260px;
+    height: 130px;
+    display: grid;
+    align-items: start;
+    background: rgba(0, 0, 0, .2);
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+}
+
+.records .records-wrapper > .box > div:first-child {
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: .7rem;
     z-index: -1;
-    opacity: 0.4;
-    border-radius: 15px;
-}
-.record-box {
-    position: relative !important;
-    display: inline-block;
-    text-align: left;
-    margin: 20px;
-    width: 260px;
-    border-radius: 15px;
-    height: 120px;
+    opacity: .4;
+    background-repeat: no-repeat;
+    background-position: center;
 
-}
-.box-title{
-    margin-top: 5px;
-    font-weight: bolder !important;
-    font-size: 14px;
-}
-.box-val{
-    color: #00AB3A !important;
-    font-size: 25px;
-    margin-top: 5px;
-    font-family: Arial !important;
-    font-weight: bolder !important;
+    background-size: cover;
 }
 
-.record-box button{
-    background: transparent;
-    border-radius: 5px;
-    position: absolute;
-    right: 5px;
-    bottom: 45px;
-    color: yellow;
+.records .records-wrapper > .box > section > div:first-child {
+    font-size: 1.3rem;
+    text-align: start;
+    text-indent: 1rem;
 }
-.record-box div {
-    user-select: none;
 
-    font-family: HelvLight;
-    font-style: normal;
-    font-weight: normal;
-    text-indent: 10px;
-
-    color: white;
+.records .records-wrapper > .box > section > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
 }
+
+.records .records-wrapper > .box > section > section > div:first-child {
+    font-size: 1.3rem;
+    text-align: start;
+    text-indent: 2rem;
+}
+
+.records .records-wrapper > .box > section > section > div:nth-child(2n) {
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: gold;
+}
+
+.records .records-wrapper > .box > section > section > div > i {
+    font-size: 1.6rem;
+    color: gold;
+}
+
+
+.records > .records-wrapper > .box > section > div:last-child {
+    text-align: start;
+    text-indent: 1rem;
+}
+
+@media (max-width: 700px) {
+    .records {
+        justify-items: center;
+    }
+
+
+    .re-warning {
+        width: 90%;
+        text-align: center;
+    }
+
+
+}
+
+

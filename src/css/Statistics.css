@@ -1,122 +1,245 @@
-.statistics-page {
+
+.statistics {
     width: 100%;
+    text-align: center;
+}
+
+.statistics > .header {
+    margin: auto;
+    width: 60%;
+    position: relative;
+    display: grid;
+    background: black;
+    z-index: -1;
+    grid-template-columns: repeat(3, 1fr);
+    height: fit-content;
+    border: 2px solid white;
+    padding: .2rem;
+    text-align: center;
+}
+
+
+
+.statistics > .header .profile-bg {
+    position: absolute;
+    width: 100%;
+    opacity: 0.5;
+    background: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg") no-repeat;
     height: 100%;
     background-size: cover;
-    margin-top: 50px !important;
-    background-position: top;
-    user-select: none;
+    z-index: -1;
+}
 
-    position: absolute;
+.statistics > .header > .left {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    align-items: end;
+    text-align: start;
+
+}
+
+.statistics >.header > .left > div > section > div {
+    width: 160%;
+    margin: 0 .5rem;
     text-align: center;
+    border: white 2px solid;
+    height: fit-content;
+    font-size: 1rem;
+    position: relative;
 }
 
-.player-header {
-    position: relative ;
-    margin: auto !important;
-    height: 300px;
-    width: 1200px;
-    background: url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg") no-repeat top;
-    background-size: cover;
-}
-
-.player-rank-img {
-    width: 180px;
-}
-
-.rank-text {
-    color: white;
-    font-weight: bolder;
-    font-family: Calibri;
-    font-size: 25px;
-}
-
-.champ-points {
+.statistics >.header > .left .progress {
     position: absolute;
-    bottom: 40px;
-    right: 0;
-    left: 0;
+    width: 30%;
+    height: 100%;
+    z-index: -1;
+    background: darkblue;
+}
+
+.statistics >.header > .left > div {
+    display: grid;
+    align-items: end;
+}
+
+
+.statistics >.header > .left > div img {
+    padding: .5rem;
+    width: 5rem;
+}
+
+.statistics >.header > .left > section label {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
+.statistics >.header > .left > section img {
+    width: 2.5rem;
+
+}
+
+
+.statistics >.header > .left > section > section {
+    display: grid;
+    align-items: center;
+    grid-gap: .5rem;
+    justify-items: start;
+    grid-template-columns: 1fr 4fr;
+}
+
+.statistics >.header > .left > section > section > div {
+    font-size: 1.2rem;
+}
+
+.statistics >.header > .left > section > section > section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: start;
+}
+
+.statistics >.header > .mid {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: .4rem;
+    justify-content: center;
+    align-items: start;
+}
+
+.statistics >.header >.mid > div:nth-child(2n) {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.statistics >.header >.mid > img {
+    margin: auto;
+    width: 9rem;
+}
+
+.statistics >.header >.mid div:nth-child(3n) {
     color: #00AB3A;
-    font-size: 30px;
-    font-weight: bolder;
-    font-family: Arial;
+    font-size: 2.5rem;
 }
 
-.champ-name {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 5px;
-    margin: auto;
-    font-size: 25px;
-    font-family: Calibri;
-    color: white;
-    font-weight: bolder;
+.statistics >.header >.mid div:nth-child(4n) {
+    font-size: 1.5rem;
 }
 
-.player-icon {
-    position: absolute;
-    left: 10px;
-    width: 90px;
-    bottom: 10px;
+.statistics >.header >.right {
+    display: grid;
+    align-content: end;
+    justify-items: end;
+    grid-template-columns: repeat(auto-fit, minmax(3rem, auto));
+    grid-gap: .3rem;
 }
 
-.player-name {
-    color: white;
-    position: absolute !important;
-    bottom: 70px;
-    left: 115px;
-    font-size: 25px;
-    font-weight: bolder;
-    font-family: Calibri;
-}
-
-.main-lanes {
-    position: absolute;
-    left: 115px;
-    bottom: 20px;
-    font-weight: bolder;
-    font-family: Calibri;
-    color: white;
-}
-
-.player-lanes {
-    position: absolute;
-    left: 170px;
-    bottom: 15px;
-}
-
-
-.top-champions {
-    position: absolute;
-    right: 5px;
-    bottom: 0;
-}
-
-.top-champions img {
-    margin: 5px;
+.statistics >.header >.right > img {
+    width: 3.5rem;
     border-radius: 50%;
-    width: 45px;
+    margin-bottom: .5rem;
 }
 
-.stats-navigator {
-    width: 1100px;
+
+
+.statistics >.header >.right div {
+    background: darkblue;
+}
+
+
+
+.statistics .nav {
+    width: 60%;
     text-align: center;
-    margin: auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    margin: .3rem auto;
 }
 
-.stats-navigator div {
-    display: inline-block;
-    margin-left: 85px;
-    margin-right:85px ;
-    margin-top: 5px;
-    color: white;
-    font-size: 25px;
-    opacity: 0.5;
-    font-family: Calibri;
-    font-weight: bolder;
-}
-
-.stats-navigator div:hover{
+.statistics .nav > div {
+    opacity: 0.8;
+    font-size: 1.3rem;
     cursor: pointer;
+    position: relative;
 }
+
+.statistics .nav div:hover {
+    opacity: 1;;
+}
+
+
+@media (max-width: 700px) {
+
+    .statistics > .header {
+        width: 90%;
+        grid-template-columns: 0.7fr 1fr .3fr;
+
+    }
+
+    .statistics >.header >  .mid > img {
+        width: 8rem;
+    }
+
+    .statistics >.header >   .mid div:nth-child(2n) {
+        font-size: 1rem;
+    }
+
+    .statistics >.header >    .mid div:nth-child(3n) {
+        color: #00AB3A;
+        font-size: 1.5rem;
+    }
+
+    .statistics >.header >   .mid div:nth-child(4n) {
+        font-size: 1rem;
+    }
+
+    .statistics > .header > .left > section > section > section {
+        grid-template-columns: auto;
+    }
+
+    .statistics > .header > .left > section > section > section {
+        display: inline-block;
+    }
+
+    .statistics > .header > .left > section > section {
+        align-items: normal;
+        grid-template-columns: auto;
+    }
+
+    .statistics > .header > .left > div > section > div {
+        width: 90%;
+        font-size: .8rem;
+        text-align: center;
+    }
+
+
+    .statistics > .header > .left {
+        grid-template-columns: auto;
+    }
+
+    .statistics > .header > .left > section label {
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+
+
+
+
+    .statistics >.header >  .right > img {
+        width: 3rem;
+        margin-bottom: .5rem;
+    }
+
+    .statistics .nav {
+        width: 90%;
+    }
+
+    .statistics .nav > div {
+        font-size: 1rem;
+    }
+
+
+}
+
+
+
 

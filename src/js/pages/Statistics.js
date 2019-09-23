@@ -1,109 +1,196 @@
 import React from 'react'
 import Records from "../Components/Records";
-import History from "../Components/History";
+import Matches from "../Components/History";
 import Live from "../Components/Live";
-import Progress from "../Components/Progress";
+import Profile from "../Components/Profile";
+import {AppResources, DataObj} from "../../config";
+import {Redirect} from "react-router-dom";
+import axios from 'axios'
+import {Conversors} from "../methods/Conversors";
+import {Brain} from "../methods/Brain";
+import {Info} from "../methods/Info";
+import ReactTooltip from "react-tooltip";
 
+const info = new Info();
+const conversor = new Conversors();
+const brain = new Brain();
 export default class Statistics extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            selected: 'MATCHES',
+            selected: 'PROFILE',
+            percentage: '0%',
+            matches: 10,
+            ready: false
+        }
+
+    }
+
+
+    getAllMatches() {
+        axios.get('https://us-central1-lol-static.cloudfunctions.net/getMoreMatches?id=' + DataObj.data.accountDetails['accountId'] + '&server=' + 'euw1&index=' + DataObj.data.matchHistory.matchDetails.length).then((matches) => {
+            matches.data['matches'].map((game) => {
+                DataObj.data.matchHistory.matches.push(game)
+            })
+
+            matches.data['matchDetails'].map((game) => {
+                if (DataObj.data.matchHistory.matchDetails.length !== DataObj.data.totalGames) {
+
+                    DataObj.data.matchHistory.matchDetails.push(game)
+                } else {
+                    this.setState({ready: true})
+                }
+
+            })
+            if (DataObj.data.totalGames !== DataObj.data.matchHistory.matchDetails.length) {
+                this.getAllMatches()
+            }
+            let percentage = DataObj.data.matchHistory.matchDetails.length * 100 / DataObj.data.totalGames;
+            this.setState({matches: DataObj.data.matchHistory.matchDetails.length, percentage: percentage + '%'})
+
+
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+    componentDidMount() {
+        if (DataObj.data.totalGames !== DataObj.data.matchHistory.matchDetails.length) {
+            if (DataObj.data.valid) {
+                this.getAllMatches()
+            }
+
         }
     }
 
 
     Controller() {
-        console.log(this.state.selected)
         switch (this.state.selected) {
-            case 'PROGRESS':
-               /* document.getElementById(this.state.selected.toLowerCase()).style.opacity = "1";
-                document.getElementById("live").style.opacity = "0.5";
-                document.getElementById("records").style.opacity = "0.5";
-                document.getElementById("matches").style.opacity = "0.5";*/
+            case 'PROFILE':
                 return (
-                    <Progress />
+                    <Profile key={Date.now()}/>
                 )
                 break;
             case 'LIVE':
-               /* document.getElementById(this.state.selected.toLowerCase()).style.opacity = "1";
-                document.getElementById("progress").style.opacity = "0.5";
-                document.getElementById("records").style.opacity = "0.5";
-                document.getElementById("matches").style.opacity = "0.5";*/
-               return (
-                   <Live isLive={true}/>
-               )
+                return (
+                    <Live isLive={true}/>
+                )
                 break;
 
             case 'RECORDS':
-              /*  document.getElementById(this.state.selected.toLowerCase()).style.opacity = "1";
-                document.getElementById("progress").style.opacity = "0.5";
-                document.getElementById("live").style.opacity = "0.5";
-                document.getElementById("matches").style.opacity = "0.5";*/
                 return (
-                    <Records/>
+                    <Records key={Date.now()} ready={this.state.ready}/>
                 )
                 break;
             case 'MATCHES':
-                /*document.getElementById(this.state.selected.toLowerCase()).style.opacity = "1";
-                document.getElementById("progress").style.opacity = "0.5";
-                document.getElementById("records").style.opacity = "0.5";
-                document.getElementById("live").style.opacity = "0.5";*/
                 return (
-                    <History/>
+                    <Matches/>
                 )
                 break;
+            case 'REDIRECT':
+                return (
+                    <Redirect to={'/'}/>
+                )
         }
     }
 
-    render() {
-        return (
-            <div className={"statistics-page"}>
-                <div className={"player-header"}>
-                    <img className={"player-rank-img"} src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"}
-                         alt=""/>
-                    <div className={"rank-text"}>BRONZE III</div>
-                    <div className={"champ-points"}>503,201 PTS</div>
-                    <div className={"champ-name"}>FIDDLESTICKS</div>
-                    <img className={"player-icon"}
-                         src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"} alt=""/>
-                    <div className={"player-name"}>FLASHWARS</div>
-                    <div className={"main-lanes"}>MAINS:</div>
-                    <div className={"player-lanes"}>
-                        <img src={"https://cdn.lolskill.net/img/roles/32/jungle.png"} alt=""/>
-                        <img src={"https://cdn.lolskill.net/img/roles/32/support.png"} alt=""/>
-                    </div>
-                    <div className={"top-champions"}>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"} alt=""/>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Brand.png"} alt=""/>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Jax.png"} alt=""/>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Swain.png"} alt=""/>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"} alt=""/>
-                    </div>
-                </div>
-                <div className={"stats-navigator"}>
-                    <div id={"progress"} onClick={() => {
-                        this.setState({selected: 'PROGRESS'})
-                    }}>PROGRESS
-                    </div>
-                    <div id={"live"} onClick={() => {
-                        this.setState({selected: 'LIVE'})
-                    }}>LIVE
-                    </div>
-                    <div id={"records"} onClick={() => {
-                        this.setState({selected: 'RECORDS'})
-                    }}>RECORDS
-                    </div>
-                    <div id={"matches"} onClick={() => {
-                        this.setState({selected: 'MATCHES'})
-                    }}>MATCHES
-                    </div>
-                </div>
-                {this.Controller()}
 
-            </div>
-        )
+    render() {
+        if (DataObj.data.valid) {
+            const url = "url('" + AppResources.Defaults['background'] + "')";
+            const champInfo = brain.getChampionInfoById(DataObj.data.topChampions[0]['championId']);
+            const champUrl = "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + champInfo['id'] + "_0.jpg')";
+            const MostPlayedLanes = brain.getMainLanes()
+            return (
+                <div>
+                    <main className={"statistics"}>
+                        <ReactTooltip className={"tooltip"}/>
+                        <div style={{backgroundImage: url}} className={"bg"}/>
+                        <section className={"header"}>
+                            <div className={"profile-bg"} style={{backgroundImage: champUrl}}/>
+                            <section className={"left"}>
+
+                                <div>
+                                    <section>
+                                        <div>
+                                            <div className={"progress"} style={{width: this.state.percentage}}/>
+                                            <div
+                                                className={"progress-Matches"}>{this.state.matches} OF {DataObj.data.totalGames} MATCHES
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <img src={brain.getProfileIconUrl(DataObj.data.accountDetails['profileIconId'])}
+                                         alt=""/>
+
+                                </div>
+                                <section>
+                                    <label>{DataObj.data.username}</label>
+                                    <section>
+                                        <div></div>
+                                        <section>
+                                            <img src={""} alt=""/>
+                                        </section>
+                                    </section>
+
+
+                                </section>
+                            </section>
+
+                            <section className={"mid"}>
+
+                                <img src={AppResources.Ranks[brain.getUserRanks().solo.tier.toLowerCase()]} alt=""/>
+                                <div> {(brain.getUserRanks().solo.tier === 'unranked') ? 'UNRANKED' : brain.getUserRanks().solo.tier + " " + brain.getUserRanks().solo.rank}</div>
+                                <div>{conversor.beautify(DataObj.data.topChampions[0]['championPoints'])} PTS</div>
+                                <div>{info.getChampionInfoById(DataObj.data.topChampions[0]['championId'])['name']}</div>
+                            </section>
+                            <section className={"right"}>
+                                {this.getTopChamps()}
+
+                            </section>
+                        </section>
+                        <section className={"nav"}>
+                            <div onClick={() => {
+                                this.setState({selected: 'PROFILE'})
+                            }}>PROFILE
+                            </div>
+                            <div onClick={() => {
+                                this.setState({selected: 'LIVE'})
+                            }}>LIVE
+                            </div>
+                            <div onClick={() => {
+                                this.setState({selected: 'RECORDS'})
+                            }}>RECORDS
+                            </div>
+                            <div onClick={() => {
+                                this.setState({selected: 'MATCHES'})
+                            }}>MATCHES
+                            </div>
+                        </section>
+
+                        {this.Controller()}
+
+                    </main>
+
+                </div>
+
+            )
+        } else {
+            return (
+                <Redirect to={'/'}/>
+            )
+        }
+
+
     }
 
-
+    getTopChamps() {
+        let images = []
+        const Top5 = brain.getTopChampions()
+        Top5.map((champ) => {
+            images.push(<img key={champ['id']}
+                             src={'http://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champ['id'] + '.png'}
+                             alt=""/>)
+        })
+        return images
+    }
 }

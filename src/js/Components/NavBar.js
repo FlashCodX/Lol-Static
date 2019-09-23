@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import {DataObj} from "../../config";
 
 
 export default class NavBar extends  React.Component{
@@ -8,13 +9,12 @@ export default class NavBar extends  React.Component{
             <div className={"navbar"} >
                 <div className={"logo-container"}>
                     <Link to={'/'}>
+                    <img src={DataObj.Defaults['logo']} alt=""/>
+
                     </Link>
                 </div>
 
-                <div className={"nav-items"}>
-                    <Link to={'/livematch'}>Live Match</Link>
-                    <Link to={'/matchhistory'}>Match History</Link>
-                </div>
+
 
             </div>
         )

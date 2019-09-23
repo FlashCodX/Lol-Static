@@ -1,0 +1,112 @@
+[debug] [2019-09-22T18:31:23.720Z] ----------------------------------------------------------------------
+[debug] [2019-09-22T18:31:23.722Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\FLash\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-09-22T18:31:23.722Z] CLI Version:   7.3.0
+[debug] [2019-09-22T18:31:23.722Z] Platform:      win32
+[debug] [2019-09-22T18:31:23.722Z] Node Version:  v10.15.3
+[debug] [2019-09-22T18:31:23.723Z] Time:          Sun Sep 22 2019 19:31:23 GMT+0100 (GMT+01:00)
+[debug] [2019-09-22T18:31:23.723Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-09-22T18:31:23.730Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-09-22T18:31:23.731Z] > authorizing via signed-in user
+[debug] [2019-09-22T18:31:23.731Z] [iam] checking project lol-static for permissions ["firebase.projects.get"]
+[debug] [2019-09-22T18:31:23.732Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/lol-static:testIamPermissions  
+
+[debug] [2019-09-22T18:31:24.657Z] <<< HTTP RESPONSE 200
+[debug] [2019-09-22T18:31:24.661Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/lol-static  
+ 
+[debug] [2019-09-22T18:31:24.978Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "C:\Users\FLash\Desktop\lolstatic\functions" for Cloud Functions...
+[debug] [2019-09-22T18:31:25.673Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:31:25.673Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:31:25.675Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:31:25.677Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:31:25.677Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[getChampionRotation]: http function initialized (http://localhost:5000/lol-static/us-central1/getChampionRotation).
+[info] +  functions[defaultSearch]: http function initialized (http://localhost:5000/lol-static/us-central1/defaultSearch).
+[info] +  functions[getMoreMatches]: http function initialized (http://localhost:5000/lol-static/us-central1/getMoreMatches).
+[debug] [2019-09-22T18:31:31.002Z] Accepted request GET /lol-static/us-central1/getChampionRotation?server=euw1 --> getChampionRotation
+[debug] [2019-09-22T18:31:31.366Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[info] i  functions: Beginning execution of "getChampionRotation"
+[debug] [2019-09-22T18:31:31.367Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:31:31.369Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:31:31.371Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:31:31.371Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:31:31.441Z] [runtime-status] Trigger "getChampionRotation" has been found, beginning invocation! {}
+[debug] [2019-09-22T18:31:31.441Z] [runtime-status]  {"httpsTrigger":{},"name":"getChampionRotation","entryPoint":"getChampionRotation"}
+[debug] [2019-09-22T18:31:31.441Z] [runtime-status] Running getChampionRotation in mode HTTPS {}
+[debug] [2019-09-22T18:31:31.450Z] {"socketPath":"\\\\?\\pipe\\C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\15820"}
+[debug] [2019-09-22T18:31:31.451Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\15820"}
+[debug] [2019-09-22T18:31:31.461Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-09-22T18:31:31.838Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "getChampionRotation" in ~1s
+[debug] [2019-09-22T18:32:40.746Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:32:42.103Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:32:42.104Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:32:42.107Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:32:42.108Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:32:42.109Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:32:44.871Z] Accepted request GET /lol-static/us-central1/getChampionRotation?server=euw1 --> getChampionRotation
+[debug] [2019-09-22T18:32:45.233Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[info] i  functions: Beginning execution of "getChampionRotation"
+[debug] [2019-09-22T18:32:45.234Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:32:45.236Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:32:45.238Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:32:45.239Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:32:45.308Z] [runtime-status] Trigger "getChampionRotation" has been found, beginning invocation! {}
+[debug] [2019-09-22T18:32:45.308Z] [runtime-status]  {"httpsTrigger":{},"name":"getChampionRotation","entryPoint":"getChampionRotation"}
+[debug] [2019-09-22T18:32:45.308Z] [runtime-status] Running getChampionRotation in mode HTTPS {}
+[debug] [2019-09-22T18:32:45.317Z] {"socketPath":"\\\\?\\pipe\\C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\15692"}
+[debug] [2019-09-22T18:32:45.318Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\15692"}
+[debug] [2019-09-22T18:32:45.327Z] [runtime-status] Ephemeral server used! {}
+[debug] [2019-09-22T18:32:45.606Z] [runtime-status] Ephemeral server survived. {}
+[info] i  functions: Finished "getChampionRotation" in ~1s
+[debug] [2019-09-22T18:33:28.152Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:33:29.512Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:33:29.512Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:33:29.515Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:33:29.517Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:33:29.517Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:33:59.702Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:34:01.056Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:34:01.056Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:34:01.059Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:34:01.060Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:34:01.061Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:37:43.059Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:37:44.390Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:37:44.391Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:37:44.394Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:37:44.395Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:37:44.396Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:38:51.029Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:38:52.392Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:38:52.392Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:38:52.395Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:38:52.396Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:38:52.397Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:40:41.714Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:40:43.058Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:40:43.058Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:40:43.062Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:40:43.063Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:40:43.064Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:45:06.217Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:45:07.613Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:45:07.614Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:45:07.617Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:45:07.618Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:45:07.619Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:45:40.045Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:45:41.417Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:45:41.418Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:45:41.421Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:45:41.422Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:45:41.423Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:55:35.855Z] File C:\Users\FLash\Desktop\lolstatic\functions\index.js changed, reloading triggers
+[debug] [2019-09-22T18:55:37.200Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions","node_version":"10.15.3"}
+[debug] [2019-09-22T18:55:37.200Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-09-22T18:55:37.203Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.4.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-09-22T18:55:37.205Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-09-22T18:55:37.205Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"C:\\Users\\FLash\\Desktop\\lolstatic\\functions\\node_modules\\firebase-functions\\lib\\index.js"}

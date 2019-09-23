@@ -1,0 +1,95 @@
+
+.profile {
+    width: 60%;
+    margin: .5rem auto auto;
+    display: grid;
+    grid-template-columns: .7fr 1fr;
+    grid-gap: 1rem;
+}
+
+.profile > .section-a {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+}
+
+.profile > .section-a .card {
+    display: grid;
+    border-radius: 1rem ;
+    padding: 1.5rem 0;
+    background: rgba(0,0,0,.4);
+    justify-items: start;
+    text-indent: 3rem;
+    align-items: center;
+    font-size: 1.5rem;
+    text-align: start;
+    grid-template-columns: 1fr 1.5fr;
+}
+
+
+.profile > .section-a .card > div > img {
+    width: 150px;
+}
+
+
+.profile > .section-a .card > section > div:first-child, .card > section > div:last-child {
+    opacity: 0.7;
+}
+
+
+
+
+.profile > .section-b {
+    display: grid;
+    grid-template-rows: .2fr 1fr;
+}
+
+.profile > .section-b > .kda {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+}
+
+.profile > .section-b > .kda > div {
+    background: rgba(0,0,0,.4);    font-size: 2rem;
+    border-radius: 1rem;
+}
+
+.profile >.section-b >.kda >section{
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3,1fr);
+}
+.profile >.section-b >.kda >section >div{
+    background: rgba(0,0,0,.4);    border-radius: .5rem;
+    font-size: 1.5rem;
+
+}
+
+
+
+
+@media (max-width: 700px) {
+    .profile {
+        width: 90%;
+        grid-template-columns: auto;
+
+    }
+
+
+    .profile > .section-a {
+        grid-gap: 1rem;
+    }
+
+    .profile > .section-a .card {
+        font-size: 1.3rem;
+    }
+
+    .profile > .section-a .card > div > img {
+        width: 120px;
+    }
+
+}
+
+
+

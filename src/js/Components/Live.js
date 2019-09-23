@@ -1,315 +1,182 @@
 import React from 'react'
+import {AppResources, DataObj} from "../../config";
+import {Brain} from "../methods/Brain";
+import {Conversors} from "../methods/Conversors";
+import ReactTooltip from "react-tooltip";
 
-
+const brain = new Brain();
+const conversor = new Conversors();
 export default class Live extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLive: props['isLive']
+            isLive: DataObj.data.liveMatch
         }
+        console.log(this.state.isLive)
     }
 
-    renderLiveMatch() {
+
+    renderMatch() {
+        const blue = brain.splitLiveTeams().blue
+        const teamBlueBans=brain.splitLiveTeams().blueTeamBans
+        const teamRedBans=brain.splitLiveTeams().redTeamBans
+        const red = brain.splitLiveTeams().red
+        let bueTeam = []
+        let redTeam = []
+        blue.map((player) => {
+            const champInfo = brain.getChampionInfoById(player['championId'])
+            const spells = brain.getPlayerSpells(player)
+            const rankData= brain.getUserRanksByPlayer(player['userRank']).solo
+            const percentage=(rankData.wins/(rankData.wins+rankData.losses)*100).toFixed(2)
+            const url = "url('" + 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champInfo['id']
+                + '_0.jpg' + "')";
+            const mastery = brain.getChampionStatsByPlayer(player)
+            const ranked = brain.getUserRanksByPlayer(player['userRank']).solo.tier === 'unranked'
+            bueTeam.push(<section className={"player"}>
+                <div style={{backgroundImage: url}}/>
+                <section>
+                    <div>{player['summonerName']}</div>
+                    <section>
+                        {spells}
+                    </section>
+
+                    <section className={"stats"}>
+                        <section>
+                            <img
+                                src={(mastery === null) ? AppResources.Masteries['lv0'] : AppResources.Masteries['lv' + mastery['championLevel']]}
+                                alt=""/>
+
+                            <div>{(mastery === null) ? 'LV.0' : 'LV.' + mastery['championLevel']}</div>
+                        </section>
+
+                        {(ranked) ? <section/> : <section>
+
+                            <div>RANKEDS</div>
+                            {(percentage>50)? <div style={{color:'green' ,fontSize:"1.1rem"}}>{percentage}%</div>: <div style={{color:'red' ,fontSize:"1.1rem"}}>{percentage}%</div>}
+                            <div><span style={{color:"green"}}>{ rankData.wins}</span>- <span style={{color:"red"}}>{rankData.losses}</span></div>
+                        </section>}
+
+                        <section>
+                            <img
+                                src={AppResources.Ranks[brain.getUserRanksByPlayer(player['userRank']).solo.tier.toLowerCase()]}
+                                alt=""/>
+                            <div>{brain.getUserRanksByPlayer(player['userRank']).solo.tier.toUpperCase()} {brain.getUserRanksByPlayer(player['userRank']).solo.rank}</div>
+                            <div>{brain.getUserRanksByPlayer(player['userRank']).solo.lp} LP</div>
+                        </section>
+                    </section>
+                    <div>{(mastery === null) ? '0 PTS' : conversor.beautify(mastery['championPoints']) + ' PTS'}</div>
+                    <div>{champInfo['name']}</div>
+                </section>
+
+            </section>)
+        })
+
+
+        red.map((player) => {
+            const champInfo = brain.getChampionInfoById(player['championId'])
+            const spells = brain.getPlayerSpells(player)
+            const rankData= brain.getUserRanksByPlayer(player['userRank']).solo
+            const percentage=(rankData.wins/(rankData.wins+rankData.losses)*100).toFixed(2)
+            const url = "url('" + 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champInfo['id']
+                + '_0.jpg' + "')";
+            const mastery = brain.getChampionStatsByPlayer(player)
+            const ranked = brain.getUserRanksByPlayer(player['userRank']).solo.tier === 'unranked'
+            redTeam.push(<section className={"player"}>
+                <div style={{backgroundImage: url}}/>
+                <section>
+                    <div>{player['summonerName']}</div>
+                    <section>
+                        {spells}
+                    </section>
+
+                    <section className={"stats"}>
+                        <section>
+                            <img
+                                src={(mastery === null) ? AppResources.Masteries['lv0'] : AppResources.Masteries['lv' + mastery['championLevel']]}
+                                alt=""/>
+
+                            <div>{(mastery === null) ? 'LV.0' : 'LV.' + mastery['championLevel']}</div>
+                        </section>
+
+                        {(ranked) ? <section/> : <section>
+
+                            <div>RANKEDS</div>
+                            {(percentage>50)? <div style={{color:'green' ,fontSize:"1.1rem"}}>{percentage}%</div>: <div style={{color:'red' ,fontSize:"1.1rem"}}>{percentage}%</div>}
+                            <div><span style={{color:"green"}}>{ rankData.wins}</span>- <span style={{color:"red"}}>{rankData.losses}</span></div>
+                        </section>}
+
+                        <section>
+                            <img
+                                src={AppResources.Ranks[brain.getUserRanksByPlayer(player['userRank']).solo.tier.toLowerCase()]}
+                                alt=""/>
+                            <div>{brain.getUserRanksByPlayer(player['userRank']).solo.tier.toUpperCase()} {brain.getUserRanksByPlayer(player['userRank']).solo.rank}</div>
+                            <div>{brain.getUserRanksByPlayer(player['userRank']).solo.lp} LP</div>
+                        </section>
+                    </section>
+                    <div>{(mastery === null) ? '0 PTS' : conversor.beautify(mastery['championPoints']) + ' PTS'}</div>
+                    <div>{champInfo['name']}</div>
+                </section>
+
+            </section>)
+        })
+
         return (
-            <div className={"live-container"}>
-                <div className={"team-1"}>
-                    <div className={"player-container"}>
-                        <div>
-                            <div className={"live-champ-back"}/>
+            <main className={"live"}>
+                <ReactTooltip className={"tooltip"}/>
+                <section className={"section-a"}>
+                    {bueTeam}
+                </section>
+                <section className={"section-b"}>
+                    <section className={"b1"}>
+                       {teamBlueBans.map((ban)=>{
+                           console.log(ban)
+                          const champ= brain.getChampionInfoById(ban['championId'])
+                           return(
+                               <img data-tip={champ['name']} src={"http://ddragon.leagueoflegends.com/cdn/"+AppResources.PatchVersion+"/img/champion/"+champ['id']+".png"} alt=""/>
+                           )
 
-                            <div className={"mastery"}>
-                                <img
-                                    src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                    alt=""/>
-                                <div className={"live-mastery-points"}>503,103 PTS</div>
-                                <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                            </div>
-                            <div className={"live-rank"}>
-                                <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                                <div>BRONZE III</div>
-                            </div>
+                       })}
+                    </section>
+                    <section className={"b2"}>
+                        <div>50%</div>
+                        <i className="far fa-circle circle"/>
+                        <div>50%</div>
+                    </section>
+                    <section className={"b3"}>
+                        {teamRedBans.map((ban)=>{
+                            console.log(ban)
+                            const champ= brain.getChampionInfoById(ban['championId'])
+                            return(
+                                <img data-tip={champ['name']} src={"http://ddragon.leagueoflegends.com/cdn/"+AppResources.PatchVersion+"/img/champion/"+champ['id']+".png"} alt=""/>
+                            )
 
-                            <div className={"live-spells-container"}>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                            </div>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                                 className={"live-champ-icon"} alt=""/>
-                            <div className={"live-player-name"}>FLASHWARS</div>
+                        })}
+                    </section>
 
-                        </div>
-                    </div>
-                    <div className={"player-container"}>
-                        <div>
-                            <div className={"live-champ-back"}/>
+                </section>
 
-                            <div className={"mastery"}>
-                                <img
-                                    src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                    alt=""/>
-                                <div className={"live-mastery-points"}>503,103 PTS</div>
-                                <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                            </div>
-                            <div className={"live-rank"}>
-                                <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                                <div>BRONZE III</div>
-                            </div>
-
-                            <div className={"live-spells-container"}>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                            </div>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                                 className={"live-champ-icon"} alt=""/>
-                            <div className={"live-player-name"}>FLASHWARS</div>
-
-                        </div>
-                    </div>
-                    <div className={"player-container"}>
-                        <div>
-                            <div className={"live-champ-back"}/>
-
-                            <div className={"mastery"}>
-                                <img
-                                    src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                    alt=""/>
-                                <div className={"live-mastery-points"}>503,103 PTS</div>
-                                <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                            </div>
-                            <div className={"live-rank"}>
-                                <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                                <div>BRONZE III</div>
-                            </div>
-
-                            <div className={"live-spells-container"}>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                            </div>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                                 className={"live-champ-icon"} alt=""/>
-                            <div className={"live-player-name"}>FLASHWARS</div>
-
-                        </div>
-                    </div>
-                    <div className={"player-container"}>
-                        <div>
-                            <div className={"live-champ-back"}/>
-
-                            <div className={"mastery"}>
-                                <img
-                                    src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                    alt=""/>
-                                <div className={"live-mastery-points"}>503,103 PTS</div>
-                                <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                            </div>
-                            <div className={"live-rank"}>
-                                <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                                <div>BRONZE III</div>
-                            </div>
-
-                            <div className={"live-spells-container"}>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                            </div>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                                 className={"live-champ-icon"} alt=""/>
-                            <div className={"live-player-name"}>FLASHWARS</div>
-
-                        </div>
-                    </div>
-                    <div className={"player-container"}>
-                        <div>
-                            <div className={"live-champ-back"}/>
-
-                            <div className={"mastery"}>
-                                <img
-                                    src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                    alt=""/>
-                                <div className={"live-mastery-points"}>503,103 PTS</div>
-                                <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                            </div>
-                            <div className={"live-rank"}>
-                                <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                                <div>BRONZE III</div>
-                            </div>
-
-                            <div className={"live-spells-container"}>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                            </div>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                                 className={"live-champ-icon"} alt=""/>
-                            <div className={"live-player-name"}>FLASHWARS</div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div className={"team-2"}>
-                    <div className={"player-container"}>
-                        <div>
-                            <div className={"live-champ-back"}/>
-
-                            <div className={"mastery"}>
-                                <img
-                                    src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                    alt=""/>
-                                <div className={"live-mastery-points"}>503,103 PTS</div>
-                                <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                            </div>
-                            <div className={"live-rank"}>
-                                <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                                <div>BRONZE III</div>
-                            </div>
-
-                            <div className={"live-spells-container"}>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                                <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                     alt=""/>
-                            </div>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                                 className={"live-champ-icon"} alt=""/>
-                            <div className={"live-player-name"}>FLASHWARS</div>
-
-                        </div>
-                    </div>  <div className={"player-container"}>
-                    <div>
-                        <div className={"live-champ-back"}/>
-
-                        <div className={"mastery"}>
-                            <img
-                                src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                alt=""/>
-                            <div className={"live-mastery-points"}>503,103 PTS</div>
-                            <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                        </div>
-                        <div className={"live-rank"}>
-                            <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                            <div>BRONZE III</div>
-                        </div>
-
-                        <div className={"live-spells-container"}>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                 alt=""/>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                 alt=""/>
-                        </div>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                             className={"live-champ-icon"} alt=""/>
-                        <div className={"live-player-name"}>FLASHWARS</div>
-
-                    </div>
-                </div>  <div className={"player-container"}>
-                    <div>
-                        <div className={"live-champ-back"}/>
-
-                        <div className={"mastery"}>
-                            <img
-                                src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                alt=""/>
-                            <div className={"live-mastery-points"}>503,103 PTS</div>
-                            <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                        </div>
-                        <div className={"live-rank"}>
-                            <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                            <div>BRONZE III</div>
-                        </div>
-
-                        <div className={"live-spells-container"}>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                 alt=""/>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                 alt=""/>
-                        </div>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                             className={"live-champ-icon"} alt=""/>
-                        <div className={"live-player-name"}>FLASHWARS</div>
-
-                    </div>
-                </div>  <div className={"player-container"}>
-                    <div>
-                        <div className={"live-champ-back"}/>
-
-                        <div className={"mastery"}>
-                            <img
-                                src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                alt=""/>
-                            <div className={"live-mastery-points"}>503,103 PTS</div>
-                            <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                        </div>
-                        <div className={"live-rank"}>
-                            <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                            <div>BRONZE III</div>
-                        </div>
-
-                        <div className={"live-spells-container"}>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                 alt=""/>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                 alt=""/>
-                        </div>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                             className={"live-champ-icon"} alt=""/>
-                        <div className={"live-player-name"}>FLASHWARS</div>
-
-                    </div>
-                </div>  <div className={"player-container"}>
-                    <div>
-                        <div className={"live-champ-back"}/>
-
-                        <div className={"mastery"}>
-                            <img
-                                src={"https://vignette.wikia.nocookie.net/leagueoflegends/images/7/7a/Champion_Mastery_Level_7_Flair.png/revision/latest/scale-to-width-down/50?cb=20150312005414"}
-                                alt=""/>
-                            <div className={"live-mastery-points"}>503,103 PTS</div>
-                            <div className={"live-champ-name"}>FIDDLESTICKS</div>
-                        </div>
-                        <div className={"live-rank"}>
-                            <img src={"https://cdn.lolskill.net/img/tiers/192/bronze.png"} alt=""/>
-                            <div>BRONZE III</div>
-                        </div>
-
-                        <div className={"live-spells-container"}>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                 alt=""/>
-                            <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/SummonerFlash.png"}
-                                 alt=""/>
-                        </div>
-                        <img src={"https://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/588.png"}
-                             className={"live-champ-icon"} alt=""/>
-                        <div className={"live-player-name"}>FLASHWARS</div>
-
-                    </div>
-                </div>
+                <section className={"section-a"}>
+                    {redTeam}
+                </section>
 
 
-                </div>
-            </div>
+            </main>
         )
     }
+
 
     render() {
-        return (
-            <div className={"live-container"}>
-                {(this.state.isLive) ? this.renderLiveMatch() :
-                    <div className={"message-container"}>
-                        <div className={"live-message"}>Flashwars is not in a game.</div>
-                    </div>
-                }
+        if (this.state.isLive) {
+            return (
+                this.renderMatch()
 
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className={"warning"}>{DataObj.data.username} IS NOT CURRENTLY ON A MATCH.</div>
+            )
+        }
+
     }
 
 }
