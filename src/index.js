@@ -7,7 +7,7 @@ import Home from "./js/pages/Home";
 import Statistics from "./js/pages/Statistics";
 import Error from "./js/pages/Error";
 import axios from 'axios'
-import {DataObj ,AppResources} from "./config";
+import {DataObj ,AppResources,enVars} from "./config";
 import {config} from "./config";
 import firebase from "firebase";
 firebase.initializeApp(config)
@@ -58,7 +58,7 @@ axios.get('https://ddragon.leagueoflegends.com/realms/na.json').then((server) =>
                 AppResources.Defaults[el.split('.')[0]] = url
             })
         })).then((_) => {
-            axios.get('http://localhost:5000/lol-static/us-central1/getChampionRotation?server=euw1').then((champs) => {
+            axios.get(enVars.Rotation+'server=euw1').then((champs) => {
                 AppResources.FreeChampions = champs.data['freeChampionIds']
 
                     ReactDOM.render(

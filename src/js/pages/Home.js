@@ -1,5 +1,5 @@
 import React from 'react'
-import {AppResources, DataObj} from "../../config";
+import {AppResources, DataObj,enVars} from "../../config";
 import {Redirect} from "react-router-dom";
 import 'aos/dist/aos.css';
 import {UrlsExtract} from "../methods/UrlsExtract";
@@ -68,7 +68,7 @@ export default class Home extends React.Component {
 
     makePlayerSearch() {
         this.setState({loading:true})
-        axios.get('https://us-central1-lol-static.cloudfunctions.net/defaultSearch?name=' + this.state.username + '&server=' + this.state.server).then((data) => {
+        axios.get(enVars.Search+'?name=' + this.state.username + '&server=' + this.state.server).then((data) => {
             console.log(data)
             DataObj.data = data.data
             this.setState({loading:false})

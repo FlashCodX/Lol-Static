@@ -3,7 +3,7 @@ import Records from "../Components/Records";
 import Matches from "../Components/History";
 import Live from "../Components/Live";
 import Profile from "../Components/Profile";
-import {AppResources, DataObj} from "../../config";
+import {AppResources, DataObj,enVars} from "../../config";
 import {Redirect} from "react-router-dom";
 import axios from 'axios'
 import {Conversors} from "../methods/Conversors";
@@ -28,7 +28,7 @@ export default class Statistics extends React.Component {
 
 
     getAllMatches() {
-        axios.get('https://us-central1-lol-static.cloudfunctions.net/getMoreMatches?id=' + DataObj.data.accountDetails['accountId'] + '&server=' + 'euw1&index=' + DataObj.data.matchHistory.matchDetails.length).then((matches) => {
+        axios.get(enVars.More+'id=' + DataObj.data.accountDetails['accountId'] + '&server=' + 'euw1&index=' + DataObj.data.matchHistory.matchDetails.length).then((matches) => {
             matches.data['matches'].map((game) => {
                 DataObj.data.matchHistory.matches.push(game)
             })

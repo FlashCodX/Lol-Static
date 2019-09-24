@@ -1,14 +1,14 @@
 {
   "name": "lolstatic",
   "version": "0.1.0",
-  "homepage": "https://lolstatic.netlify.com" ,
-
+  "homepage": "https://lolstatic.netlify.com",
   "private": true,
   "dependencies": {
     "aos": "^3.0.0-beta.6",
     "axios": "^0.19.0",
     "chart.js": "^2.8.0",
     "firebase": "^6.4.2",
+    "netlify-lambda": "^1.6.3",
     "ngrok": "^3.2.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -19,10 +19,11 @@
   "scripts": {
     "start": "react-scripts start",
     "postinstall": "npm run build",
-
     "build": "react-scripts build",
     "postbuild": "node ./delete-sourcemap.js",
     "test": "react-scripts test",
+    "lambda-serve": "netlify-lambda serve functions",
+    "lambda-build": "netlify-lambda build functions",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
