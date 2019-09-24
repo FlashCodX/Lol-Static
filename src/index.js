@@ -50,15 +50,20 @@ axios.get('https://ddragon.leagueoflegends.com/realms/na.json').then((server) =>
         return axios.get('https://ddragon.leagueoflegends.com/cdn/' + server.data['v'] + '/data/en_US/' + dt).then((data) => {
             const propName = dt.split('.')[0]
             AppResources[propName] = data.data
+            console.log("got data from riot")
 
         })
     })).then((_) => {
         Promise.all(defaults.map((el) => {
             return firebase.apps[0].storage('gs://lol-static.appspot.com/').ref('defaults/' + el).getDownloadURL().then((url) => {
+                console.log("got data from firebase")
+
                 AppResources.Defaults[el.split('.')[0]] = url
             })
         })).then((_) => {
             axios.get('https://lolstatic.netlify.com/.netlify/functions/getFreeChampions?server=euw1').then((champs) => {
+                console.log("got data from api")
+
                 AppResources.FreeChampions = champs.data['freeChampionIds']
 
                     ReactDOM.render(
