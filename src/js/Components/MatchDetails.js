@@ -35,7 +35,6 @@ export default class MatchDetails extends React.Component {
         }
 
         const teams = brain.splitTeamsByMatch(this.state.game);
-        console.log(teams)
         teams.teamBlue.map((player) => {
             teamBlueKda.kills += player['champion']['stats']['kills']
             teamBlueKda.deaths += player['champion']['stats']['deaths']
@@ -264,7 +263,6 @@ export default class MatchDetails extends React.Component {
         /* const game = this.state.game
          const MostCs = filter.getTopCsInGame(game)
          const MostDmg = filter.getTopDamageInGame(game)
-         console.log(MostDmg)
          const MostGold = filter.getTopGoldInGame(game)
          const HighestKda = filter.getHighestKdaInGame(game)
          const MostWards = filter.getTopWardsPlacedInGame(game)*/
@@ -289,7 +287,6 @@ export default class MatchDetails extends React.Component {
         const teamRedAssists=brain.splitTeamsByMatch(game).teamRedDetails['assists']
 
         const BlueTeamPlayers= brain.splitTeamsByMatch(game).teamBlue
-        console.log(BlueTeamPlayers)
         const RedTeamPlayers= brain.splitTeamsByMatch(game).teamRed
         return (
             <div>

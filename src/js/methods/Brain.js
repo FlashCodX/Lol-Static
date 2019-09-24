@@ -126,8 +126,6 @@ export class Brain {
 
 
     getUserRanksByPlayer(ranksData) {
-        console.log(ranksData)
-        console.log(ranksData)
         let ranks = {
             unrankedAll: false,
             solo: {
@@ -175,7 +173,6 @@ export class Brain {
         } else {
             ranks.unrankedAll = true
         }
-        console.log(ranks)
         return ranks
     }
 
@@ -349,7 +346,6 @@ export class Brain {
             }
         })
 
-        console.log(lanes)
 
 
     }
@@ -471,7 +467,6 @@ export class Brain {
                             const champion = this.getChampionInfoById(player['championId'])
                             const spells = this.getPlayerSpells(player)
                             const items = this.getItems(player['stats'])
-                            console.log(player)
                             teams.teamBlue.push(<section>
                                 <img key={champion['id']}
                                      src={'http://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champion['id'] + '.png'}
@@ -515,7 +510,6 @@ export class Brain {
                             const champion2 = this.getChampionInfoById(player['championId'])
                             const spells2 = this.getPlayerSpells(player)
                             const items2 = this.getItems(player['stats'])
-                            console.log(player)
                             teams.teamRed.push(<section>
                                 <img key={champion2['id']}
                                      src={'http://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champion2['id'] + '.png'}

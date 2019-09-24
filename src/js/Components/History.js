@@ -37,10 +37,8 @@ export default class History extends React.Component {
     search() {
         let matches = []
         DataObj.data.matchHistory.matchDetails.map((game) => {
-            console.log(game['queueId'])
             const championName = brain.getChampionInfoById(brain.getMyPlayer(game).champion['championId'])['name'].toLowerCase()
             if (championName.includes(this.state.text.toLowerCase()) || this.state.text === '') {
-                console.log(this.state.gameType)
                 if (this.state.gameType==='All'){
                     matches.push(game)
                 }else {

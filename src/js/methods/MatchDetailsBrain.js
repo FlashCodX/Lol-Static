@@ -96,7 +96,6 @@ export class MatchDetailsBrain {
             const deaths = player['stats']['deaths']
             const assists = player['stats']['assists']
             const kda = assists + kills / ((deaths === 0) ? 1 : deaths)
-            console.log(kda)
             if (kda > highestKda) {
                 highestKda = kda
                 user.champion = player

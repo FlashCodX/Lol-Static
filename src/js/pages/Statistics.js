@@ -39,7 +39,6 @@ export default class Statistics extends React.Component {
 
                     DataObj.data.matchHistory.matchDetails.push(game)
                 } else {
-                    console.log("here")
                     this.setState({ready: true})
                 }
 

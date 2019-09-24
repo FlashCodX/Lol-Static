@@ -12,7 +12,6 @@ export default class Live extends React.Component {
         this.state = {
             isLive: DataObj.data.liveMatch
         }
-        console.log(this.state.isLive)
     }
 
 
@@ -129,7 +128,6 @@ export default class Live extends React.Component {
                 <section className={"section-b"}>
                     <section className={"b1"}>
                        {teamBlueBans.map((ban)=>{
-                           console.log(ban)
                           const champ= brain.getChampionInfoById(ban['championId'])
                            return(
                                <img data-tip={champ['name']} src={"http://ddragon.leagueoflegends.com/cdn/"+AppResources.PatchVersion+"/img/champion/"+champ['id']+".png"} alt=""/>
@@ -144,7 +142,6 @@ export default class Live extends React.Component {
                     </section>
                     <section className={"b3"}>
                         {teamRedBans.map((ban)=>{
-                            console.log(ban)
                             const champ= brain.getChampionInfoById(ban['championId'])
                             return(
                                 <img data-tip={champ['name']} src={"http://ddragon.leagueoflegends.com/cdn/"+AppResources.PatchVersion+"/img/champion/"+champ['id']+".png"} alt=""/>

@@ -35,7 +35,6 @@ export default class Records extends React.Component {
     }
 
     middleware(game){
-        console.log(this.state.ready)
         if (this.state.ready){
             this.setState({selectedMatch:game},()=>{
                 this.setState({showDetails:true})
