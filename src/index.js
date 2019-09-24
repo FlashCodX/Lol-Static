@@ -7,7 +7,7 @@ import Home from "./js/pages/Home";
 import Statistics from "./js/pages/Statistics";
 import Error from "./js/pages/Error";
 import axios from 'axios'
-import {DataObj ,AppResources,enVars} from "./config";
+import {DataObj ,AppResources} from "./config";
 import {config} from "./config";
 import firebase from "firebase";
 firebase.initializeApp(config)

@@ -10,11 +10,7 @@ export const config = {
     appId: "1:255085972146:web:8466fdef5e941754"
 }
 
-export let enVars = {
-    Rotation: process.env.REACT_APP_ROTATION_URL,
-    More: process.env.REACT_APP_MORE_MATCHES,
-    Search:process.env.REACT_APP_SEARCH
-}
+
 
 
 export let AppResources = {
