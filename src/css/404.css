@@ -1,0 +1,9 @@
+
+
+.notfound >label{
+position: absolute;
+    top:10%;
+    left: 50%;
+    font-size: 3rem;
+    transform: translate(-50%,-10%);
+}

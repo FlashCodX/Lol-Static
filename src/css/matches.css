@@ -1,0 +1,172 @@
+
+
+.matches {
+    width: 100%;
+    grid-template-rows: min-content;
+    grid-gap: 1rem;
+    margin: 1rem 0;
+    height: 50vh;
+    overflow-y: auto;
+    display: grid;
+}
+
+.matches >.match {
+    display: grid;
+    grid-template-rows: auto;
+    position: relative;
+    grid-gap: .2rem;
+    border: green 2px solid;
+
+}
+
+  .matches > div:last-child {
+    text-decoration: none;
+    color: white;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.matches > div:last-child i {
+    background: transparent;
+}
+
+
+.matches  >.match .section-a {
+    display: grid;;
+    grid-gap: .3rem;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: start;
+}
+
+.matches  >.match .section-a>div:nth-child(2n){
+    background: red;
+}
+
+.matches  >.match .section-a>div:nth-child(3n){
+    background: red;
+}
+
+
+
+.matches  .match .section-b {
+    display: grid;
+    grid-gap: .5rem;
+    align-items: start;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.matches .match .section-b > section:first-child > div:first-child {
+    color: red;
+    font-size: 2rem;
+}
+
+.matches .match .section-b > section:last-child {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.matches .match .section-b > section:last-child > section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.matches .match .section-b img {
+    width: 32px;
+    margin: .3rem;
+}
+
+.matches .match .section-b > section > div:nth-child(2n) {
+    font-size: .9rem;
+}
+
+.matches .match .section-b > section > div:first-child {
+    font-size: 1.7rem;
+    color: #00AB3A;
+}
+
+
+.matches .match .section-c {
+    display: grid;
+    margin: .2rem;
+    align-items: end;
+    grid-template-columns: repeat(auto-fill, minmax(50px, auto));
+}
+
+.matches .match .section-c img {
+    width: 35px;
+}
+
+
+.matches .match .match-bg {
+    position: absolute;
+    opacity: 0.4;
+    width: 100%;
+    background: url("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg") no-repeat;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+}
+
+
+
+
+
+@media (max-width: 700px) {
+
+    .matches  .match   .section-a {
+        font-size: .9rem;
+    }
+
+    .matches  .match .section-b {
+        align-items: start;
+    }
+
+    .matches  .match .section-b > section:first-child > div:first-child {
+        font-size: 1rem;
+    }
+
+
+    .matches  .match .section-b > section > div:first-child {
+        font-size: 1rem;
+        color: #00AB3A;
+    }
+
+    .matches   .match .section-b img {
+        width: 25px;
+        margin: .3rem;
+    }
+
+    .matches    .match .section-b > section > div:nth-child(2n) {
+        font-size: .8rem;
+    }
+
+
+    .matches  .match .section-c {
+        justify-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(40px, auto));
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+@media (max-width: 700px) {
+    {
+        width: 90%;
+    }
+
+    .history-wrapper {
+        grid-template-columns: auto;
+    }
+
+}
+

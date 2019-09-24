@@ -1,0 +1,180 @@
+/* repeat(auto-fit, minmax(160px,1fr))*/
+
+.home > .content-wrapper {
+    display: grid;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+/*HEADER FRONT PAGE*/
+.home > .content-wrapper > header {
+    display: grid;
+    margin: 10vh auto;
+    grid-template-columns: minmax(auto, 700px);
+    font-size: 4rem;
+}
+
+/************************/
+
+
+/*INPUT FORM  FRONT PAGE*/
+.home > .content-wrapper .section-a > input, select, i {
+    color: white;
+    font-weight: bolder;
+    outline: none;
+    padding: .7rem;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 1.7rem;
+}
+
+.home > .content-wrapper .section-a input {
+    border-left: 4px white solid;
+    border-bottom: 4px white solid;
+    border-top: 4px white solid;
+    border-right: 0;
+    width: 70%;
+}
+
+.home > .content-wrapper .section-a input::placeholder {
+    color: white;
+    text-indent: 5px;
+}
+
+.home > .content-wrapper .section-a a i {
+    font-size: 50px;
+    padding: 1.1rem;
+    border-right: 4px white solid;
+    border-top: 4px white solid;
+    border-bottom: 4px white solid;
+}
+
+.home > .content-wrapper .section-a select {
+    border-right: 4px white solid;
+    border-bottom: 4px white solid;
+    border-top: 4px white solid;
+    border-left: 0;
+
+}
+
+.home > .content-wrapper .section-a {
+    display: flex;
+    position: relative;
+    margin: auto auto 5rem;
+}
+.home > .content-wrapper .section-a >label{
+    position: absolute;
+    top:90px;
+display: none;
+    color: red;
+    left: 20px;
+    font-size: 1.3rem;
+}
+
+.home >.content-wrapper >.section-a >.loading{
+    position: absolute;
+    bottom: 76%;
+    right: 8.7%;
+    width: 40px;
+}
+.home >.content-wrapper >.section-a >.loading >img{
+    position: absolute;
+    width: 100%;
+}
+
+.home > .content-wrapper .section-a >label >i{
+    color: red;
+}
+
+/********************************************/
+
+
+/*CHAMPION ROTATION */
+.home > .content-wrapper .section-b > label {
+    font-size: 2.2rem;
+    margin-bottom: 3vh;
+}
+
+.home > .content-wrapper .section-b .section-b1 > div > img {
+    width: inherit;
+    z-index: -1;
+
+}
+
+.home > .content-wrapper .section-b {
+    display: grid;
+    width: 80%;
+    margin: auto;
+
+}
+
+.home > .content-wrapper .section-b1 {
+    display: grid;
+    align-items: center;
+
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    width: 1fr;
+}
+
+.home > .content-wrapper .section-b .section-b1 > div {
+    width: 200px;
+    background: rgba(0, 0, 0, 0.6);
+    position: relative;
+    margin: auto;
+    border: 2px white solid;
+}
+
+.home > .content-wrapper .section-b .section-b1 > div > label {
+    font-size: 1.5rem;
+}
+
+.home > .content-wrapper .section-b  .section-b1 >div >.roles {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.home > .content-wrapper .section-b .section-b1 > div section > img {
+    width: 3rem;
+    margin: 0 1rem;
+}
+
+/******************************/
+
+
+/*MEDIA QUERIES FOR MOBILE */
+@media (max-width: 700px) {
+    .home > .content-wrapper > header {
+        font-size: 2rem;
+    }
+
+    .home > .content-wrapper .section-a >label{
+        top: 80px;
+    }
+
+    .home > .content-wrapper .section-a input, select, i {
+        font-size: 15px;
+    }
+
+    .home > .content-wrapper .section-a a i {
+        font-size: 35px;
+
+    }
+
+    .home > .content-wrapper .section-b1{
+        margin: auto;
+    }
+
+    .home > .content-wrapper .section-b > label {
+        font-size: 1.5rem;
+        margin-bottom: 3vh;
+    }
+
+
+}
+
+/**************************************************/
+
+
+
