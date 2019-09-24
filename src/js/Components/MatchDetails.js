@@ -330,13 +330,7 @@ export default class MatchDetails extends React.Component {
 
                             </section>
 
-                            <section>
-                                <div>MOST WARDS</div>
-                                <div>{MostWards.champion['stats']['wardsPlaced']}</div>
-                                <div>{MostWards.account['player']['summonerName']}</div>
-                                <div  style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostWards.champion['championId'])['id'] + "_0.jpg')"}}/>
 
-                            </section>
 
                         </section>
 

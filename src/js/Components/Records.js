@@ -15,7 +15,7 @@ export default class Records extends React.Component {
         this.state = {
             showDetails: false,
             selectedMatch:'',
-            ready: true,
+            ready: props.ready,
             warning:false
         }
     }
@@ -35,6 +35,7 @@ export default class Records extends React.Component {
     }
 
     middleware(game){
+        console.log(this.state.ready)
         if (this.state.ready){
             this.setState({selectedMatch:game},()=>{
                 this.setState({showDetails:true})
@@ -49,7 +50,6 @@ export default class Records extends React.Component {
         const url = "url('" + 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg' + "')";
         const MostKills = brain.getMyPlayer(records.getMostKills());
         const MostFarm = brain.getMyPlayer(records.getMostFarm());
-
 
 
         const MostDeaths = brain.getMyPlayer(records.getMostDeaths());
