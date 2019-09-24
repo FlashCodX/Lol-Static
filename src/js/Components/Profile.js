@@ -9,11 +9,15 @@ const brain = new Brain();
 export default class Profile extends React.Component {
     constructor(props) {
         super(props)
+        this.state={
+            matches:DataObj.data.matchHistory.matchDetails
+        }
     }
 
 
     render() {
-        const top5Matches = brain.getTop5Matches();
+        let top5Matches = brain.getTop5Matches(this.state.matches);
+        top5Matches=top5Matches.slice(0,5)
         return (
             <main className={"profile"}>
                 <section className={"section-a"}>

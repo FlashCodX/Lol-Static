@@ -90,9 +90,8 @@ export class Brain {
     }
 
 
-    getTop5Matches() {
-        console.log("called")
-        const Top5 = DataObj.data.matchHistory.matchDetails
+    getTop5Matches(matches) {
+        let Top5 =matches
         Top5.sort((a, b) => {
             const kdaA = (this.getMyPlayer(a).champion['stats']['kills'] + this.getMyPlayer(a).champion['stats']['assists']) / ((this.getMyPlayer(a).champion['stats']['deaths'] === 0) ? 1 : this.getMyPlayer(a).champion['stats']['deaths'])
             const kdaB = (this.getMyPlayer(b).champion['stats']['kills'] + this.getMyPlayer(b).champion['stats']['assists']) / ((this.getMyPlayer(b).champion['stats']['deaths'] === 0) ? 1 : this.getMyPlayer(b).champion['stats']['deaths'])
@@ -100,9 +99,9 @@ export class Brain {
             return kdaB - kdaA
 
         })
-        const slice = Top5.splice(0, 5)
 
-        return slice
+
+        return Top5
     }
 
     getAverageKda() {

@@ -6,6 +6,7 @@ import {UrlsExtract} from "../methods/UrlsExtract";
 import {Info} from "../methods/Info";
 import ReactTooltip from 'react-tooltip';
 import axios from "axios";
+import {debuger} from "../debug";
 
 
 const info = new Info();
@@ -65,7 +66,7 @@ export default class Home extends React.Component {
 
     makePlayerSearch() {
         this.setState({loading:true})
-        axios.get('https://lolstatic.netlify.com/.netlify/functions/searchSummoner?name=' + this.state.username + '&server=' + this.state.server).then((data) => {
+        axios.get(debuger.url+'.netlify/functions/searchSummoner?name=' + this.state.username + '&server=' + this.state.server).then((data) => {
             DataObj.data = data.data
             this.setState({loading:false})
             if (!data.data.valid) {

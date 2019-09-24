@@ -8,6 +8,7 @@ import Statistics from "./js/pages/Statistics";
 import Error from "./js/pages/Error";
 import axios from 'axios'
 import {DataObj ,AppResources} from "./config";
+import {debuger} from "./js/debug";
 import {config} from "./config";
 import firebase from "firebase";
 firebase.initializeApp(config)
@@ -61,7 +62,7 @@ axios.get('https://ddragon.leagueoflegends.com/realms/na.json').then((server) =>
                 AppResources.Defaults[el.split('.')[0]] = url
             })
         })).then((_) => {
-            axios.get('https://lolstatic.netlify.com/.netlify/functions/getFreeChampions?server=euw1').then((champs) => {
+            axios.get(debuger.url+'.netlify/functions/getFreeChampions?server=euw1').then((champs) => {
                 console.log("got data from api")
 
                 AppResources.FreeChampions = champs.data['freeChampionIds']

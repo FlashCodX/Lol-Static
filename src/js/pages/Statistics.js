@@ -10,6 +10,7 @@ import {Conversors} from "../methods/Conversors";
 import {Brain} from "../methods/Brain";
 import {Info} from "../methods/Info";
 import ReactTooltip from "react-tooltip";
+import {debuger} from "../debug";
 
 const info = new Info();
 const conversor = new Conversors();
@@ -28,7 +29,7 @@ export default class Statistics extends React.Component {
 
 
     getAllMatches() {
-        axios.get('https://lolstatic.netlify.com/.netlify/functions/getMoreMatches?id=' + DataObj.data.accountDetails['accountId'] + '&server=' + 'euw1&index=' + DataObj.data.matchHistory.matchDetails.length).then((matches) => {
+        axios.get(debuger.url+'.netlify/functions/getMoreMatches?id=' + DataObj.data.accountDetails['accountId'] + '&server=' + 'euw1&index=' + DataObj.data.matchHistory.matchDetails.length).then((matches) => {
             matches.data['matches'].map((game) => {
                 DataObj.data.matchHistory.matches.push(game)
             })
