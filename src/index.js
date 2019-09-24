@@ -58,7 +58,7 @@ axios.get('https://ddragon.leagueoflegends.com/realms/na.json').then((server) =>
                 AppResources.Defaults[el.split('.')[0]] = url
             })
         })).then((_) => {
-            axios.get(enVars.Rotation+'server=euw1').then((champs) => {
+            axios.get('https://lolstatic.netlify.com/.netlify/functions/getFreeChampions?server=euw1').then((champs) => {
                 AppResources.FreeChampions = champs.data['freeChampionIds']
 
                     ReactDOM.render(
