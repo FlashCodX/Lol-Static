@@ -21,7 +21,6 @@ export default class Home extends React.Component {
             errormsg: 'Username Not Found',
             loading:false
         }
-        console.log(AppResources)
     }
 
 
@@ -56,12 +55,10 @@ export default class Home extends React.Component {
     }
 
     onNameChange(e) {
-        console.log(e.target.value)
         this.setState({username: e.target.value})
     }
 
     onServerChange(e) {
-        console.log(e.target.value)
         this.setState({server: e.target.value})
     }
 
@@ -69,7 +66,6 @@ export default class Home extends React.Component {
     makePlayerSearch() {
         this.setState({loading:true})
         axios.get('https://lolstatic.netlify.com/.netlify/functions/searchSummoner?name=' + this.state.username + '&server=' + this.state.server).then((data) => {
-            console.log(data)
             DataObj.data = data.data
             this.setState({loading:false})
             if (!data.data.valid) {
@@ -82,7 +78,6 @@ export default class Home extends React.Component {
             }
 
         }).catch((error) => {
-            console.log(error)
             this.setState({loading:false})
 
         })

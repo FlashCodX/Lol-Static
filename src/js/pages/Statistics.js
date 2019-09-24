@@ -50,7 +50,6 @@ export default class Statistics extends React.Component {
 
 
         }).catch((error) => {
-            console.log(error)
         })
     }
 
