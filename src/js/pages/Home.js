@@ -56,6 +56,12 @@ export default class Home extends React.Component {
         return freeChampions
     }
 
+    checkEnter(e){
+        if (e.keyCode===13){
+            this.makePlayerSearch()
+        }
+    }
+
     onNameChange(e) {
         this.setState({username: e.target.value})
     }
@@ -106,7 +112,7 @@ export default class Home extends React.Component {
                             League Of Legends Summoners&Game Statistics
                         </header>
                         <section className={"section-a"}>
-                            <input type={"text"} placeholder={"Summoner Name"}
+                            <input type={"text"} placeholder={"Summoner Name"} onKeyDown={(e)=>this.checkEnter(e)}
                                    onChange={(e) => this.onNameChange(e)}/>
                             <select name="server" id="server" onChange={(e) => this.onServerChange(e)}>
                                 <option value="EUW1">EUW</option>
