@@ -14,7 +14,7 @@ import {debuger} from "./js/debug";
 const RiotResources = ['champion.json', 'item.json', 'summoner.json', 'profileicon.json'];
 const ranks = ['bronze', 'silver', 'master', 'challenger', 'diamond', 'gold', 'iron', 'platinum', 'grandmaster', 'unranked'];
 const roles = ['bottom', 'middle', 'jungle', 'support', 'top', 'mage', 'assassin', 'fighter', 'marksman', 'tank'];
-const masteries = ['lv0.webp', 'lv1.png', 'lv2.png', 'lv3.png', 'lv4.png', 'lv5.png', 'lv6.png', 'lv7.png'];
+const masteries = ['lv0.png', 'lv1.png', 'lv2.png', 'lv3.png', 'lv4.png', 'lv5.png', 'lv6.png', 'lv7.png'];
 
 
 
@@ -23,12 +23,14 @@ roles.forEach((role) => {
 });
 
 ranks.forEach((rank) => {
-    AppResources.Ranks[rank] = require(`./res/ranks/${rank}.webp`)
+    AppResources.Ranks[rank] = require(`./res/ranks/${rank}.png`)
 });
 
 for (let i = 0; i < masteries.length; i++) {
+
     AppResources.Masteries[(masteries[i] + i).split('.')[0]] = require(`./res/masteries/${masteries[i]}`)
 }
+console.log(AppResources)
 
 
 

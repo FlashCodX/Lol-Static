@@ -1,7 +1,7 @@
 
 
 export  const debuger={
-    url:'https://lolstatic.netlify.com/'
+    url:'http://localhost:9000/'
 }
 
 /*https://lolstatic.netlify.com/*/

@@ -46,7 +46,7 @@ export default class Records extends React.Component {
 
 
     render() {
-        const url = "url('" + 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg' + "')";
+        const url = "url('" + 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg' + "')";
         const MostKills = brain.getMyPlayer(records.getMostKills());
         const MostFarm = brain.getMyPlayer(records.getMostFarm());
 
@@ -82,7 +82,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(QuickestLossGame.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(QuickestLossGame.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Quickest Loss</div>
                                 <section>
@@ -98,7 +98,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(LongestLossGame.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(LongestLossGame.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Longest Loss</div>
                                 <section>
@@ -113,7 +113,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(ShortestWinGame.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(ShortestWinGame.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Shortest Win</div>
                                 <section>
@@ -128,7 +128,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(LongestGameG.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(LongestGameG.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Longest Game</div>
                                 <section>
@@ -142,7 +142,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(HighestDamage.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(HighestDamage.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Highest Damage to Champs</div>
                                 <section>
@@ -157,7 +157,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(HighestKdaGame.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(HighestKdaGame.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Highest Kda</div>
                                 <section>
@@ -171,7 +171,7 @@ export default class Records extends React.Component {
                         </div>
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostKills.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostKills.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Most Kills</div>
                                 <section>
@@ -186,7 +186,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostFarm.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostFarm.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Most Minions Killed</div>
                                 <section>
@@ -200,7 +200,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostDeaths.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostDeaths.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Most Deaths</div>
                                 <section>
@@ -215,7 +215,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(WinningGameStreak.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(WinningGameStreak.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Longest Winning Streak</div>
                                 <section>
@@ -230,7 +230,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(LosingGameStreak.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(LosingGameStreak.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Longest Losing Streak</div>
                                 <section>
@@ -245,7 +245,7 @@ export default class Records extends React.Component {
 
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostAssists.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostAssists.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Most Assists</div>
                                 <section>
@@ -258,7 +258,7 @@ export default class Records extends React.Component {
                         </div>
                         <div className={"box"}>
                             <div
-                                style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostWards.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostWards.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>
                                 <div>Most Wards Placed</div>
                                 <section>
