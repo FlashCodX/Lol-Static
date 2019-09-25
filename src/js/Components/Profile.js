@@ -1,14 +1,11 @@
 import React from 'react'
-
 import {AppResources, DataObj} from "../../config";
-import History from "./History";
 import {Brain} from "../methods/Brain";
 import Matches from "./Matches";
-
 const brain = new Brain();
 export default class Profile extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state={
             matches:DataObj.data.matchHistory.matchDetails
         }
@@ -17,7 +14,7 @@ export default class Profile extends React.Component {
 
     render() {
         let top5Matches = brain.getTop5Matches(this.state.matches);
-        top5Matches=top5Matches.slice(0,5)
+        top5Matches=top5Matches.slice(0,5);
         return (
             <main className={"profile"}>
                 <section className={"section-a"}>
@@ -79,71 +76,3 @@ export default class Profile extends React.Component {
 
 
 }
-
-/*  <div className={"profile-container"}>
-                <div className={"ranked-solo-container"}>
-                    <img className={"rank-img"}
-                         src={"https://firebasestorage.googleapis.com/v0/b/lol-static.appspot.com/o/ranks%2Fchallenger.webp?alt=media&token=50706d2a-981f-4d3e-992c-5a85aa5c7819"}
-                         alt=""/>
-                    <div className={"prof-solo-container"}>
-                        <div className={"prof-rank-label"}>RANKED SOLO/DUO</div>
-                        <div className={"prof-rank-val"}>BRONZE III</div>
-                        <div className={"prof-ranked-lp"}>100 LP</div>
-                    </div>
-                </div>
-                <div className={"ranked-solo-container"}>
-                    <img className={"rank-img"}
-                         src={"https://firebasestorage.googleapis.com/v0/b/lol-static.appspot.com/o/ranks%2Fchallenger.webp?alt=media&token=50706d2a-981f-4d3e-992c-5a85aa5c7819"}
-                         alt=""/>
-                    <div className={"prof-solo-container"}>
-                        <div className={"prof-rank-label"}>RANKED SOLO/DUO</div>
-                        <div className={"prof-rank-val"}>BRONZE III</div>
-                        <div className={"prof-ranked-lp"}>100 LP</div>
-                    </div>
-                </div>
-                <div className={"ranked-solo-container"}>
-                    <img className={"rank-img"}
-                         src={"https://firebasestorage.googleapis.com/v0/b/lol-static.appspot.com/o/ranks%2Fchallenger.webp?alt=media&token=50706d2a-981f-4d3e-992c-5a85aa5c7819"}
-                         alt=""/>
-                    <div className={"prof-solo-container"}>
-                        <div className={"prof-rank-label"}>RANKED SOLO/DUO</div>
-                        <div className={"prof-rank-val"}>BRONZE III</div>
-                        <div className={"prof-ranked-lp"}>100 LP</div>
-                    </div>
-                </div>
-                <div className={"prof-kda-calc"}>
-                    <div className={"prof-box-bg"}/>
-
-                    <div className={"kda-calc-label"}>KDA:</div>
-                    <div className={"kda-calc-value"}><span className={"kills"}>2000</span></div>
-                </div>
-                <div className={"prof-kda-container"}>
-                    <div className={"prof-kda-box"}>
-                        <div className={"prof-box-bg"}/>
-                        <div className={"prof-kda-label"}>KILLS:</div>
-                        <div className={"prof-kda-value"}><span className={"kills"}>200</span></div>
-                    </div>
-
-
-                    <div className={"prof-kda-box"}>
-                        <div className={"prof-box-bg"}/>
-
-                        <div className={"prof-kda-label"}>DEATHS:</div>
-                        <div className={"prof-kda-value"}><span className={"deaths"}>1000</span></div>
-                    </div>
-
-                    <div className={"prof-kda-box"}>
-                        <div className={"prof-box-bg"}/>
-
-                        <div className={"prof-kda-label"}>ASSISTS:</div>
-                        <div className={"prof-kda-value"}><span className={"assists"}>1500</span></div>
-                    </div>
-                </div>
-                <div className={"profile-top-Matches"}>
-
-                    {filter.showMatchHistory(4)}
-
-                </div>
-
-
-            </div>*/

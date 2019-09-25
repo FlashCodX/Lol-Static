@@ -17,7 +17,13 @@ body{
 }
 
 
+input:focus{
+    outline: none;
+}
 
+*{
+    user-select: none;
+}
 
 html{
     color: white;

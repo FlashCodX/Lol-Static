@@ -8,6 +8,8 @@ import ReactTooltip from 'react-tooltip';
 import axios from "axios";
 import {debuger} from "../debug";
 
+const background = require('./../../res/defaults/background.jpg');
+const loading = require('./../../res/defaults/loading.gif');
 
 const info = new Info();
 const UrlExtract = new UrlsExtract();
@@ -20,16 +22,16 @@ export default class Home extends React.Component {
             server: 'euw1',
             redirect: 'RECORDS',
             errormsg: 'Username Not Found',
-            loading:false
+            loading: false
         }
     }
 
 
     renderRoles(info) {
-        let roles = []
+        let roles = [];
         info['tags'].forEach((role) => {
             roles.push(
-                <img key={role} data-tip={role} src={AppResources.Roles[role.toLowerCase()] + ".png"} alt=""/>)
+                <img key={Info['key']+role} data-tip={role} src={AppResources.Roles[role.toLowerCase()]} alt=""/>)
         });
         return roles
 
@@ -37,7 +39,7 @@ export default class Home extends React.Component {
 
     renderChampions() {
         let freeChampions = [];
-        AppResources.FreeChampions.map((champ) => {
+        AppResources.FreeChampions.forEach((champ) => {
             const url = UrlExtract.getChampionUrls(champ);
             const Info = info.getChampionInfoById(champ);
             freeChampions.push(
@@ -47,7 +49,6 @@ export default class Home extends React.Component {
                         {this.renderRoles(Info)}
                     </section>
                     <label>{Info['name']}</label>
-
 
                 </div>
             )
@@ -65,34 +66,40 @@ export default class Home extends React.Component {
 
 
     makePlayerSearch() {
-        this.setState({loading:true})
-        axios.get(debuger.url+'.netlify/functions/searchSummoner?name=' + this.state.username + '&server=' + this.state.server).then((data) => {
-            DataObj.data = data.data
-            this.setState({loading:false})
-            if (!data.data.valid) {
+
+        if (!this.state.loading) {
+            this.setState({loading: true});
+            axios.get(debuger.url + '.netlify/functions/searchSummoner?name=' + this.state.username + '&server=' + this.state.server).then((data) => {
+                DataObj.data = data.data;
+                DataObj.data.Server=this.state.server
+                this.setState({loading: false});
+                if (!data.data.valid) {
+                    this.setState({errormsg:'Username Not Found'});
+                    document.getElementById('error').style.display = 'block'
+                } else {
+                    document.getElementById('error').style.display = 'hidden';
+                    this.setState({redirect: 'Statistics'})
+
+                }
+
+            }).catch(()=>{
+                this.setState({loading: false});
+                this.setState({errormsg:'Server Error'});
                 document.getElementById('error').style.display = 'block'
 
-            } else {
-                document.getElementById('error').style.display = 'hidden'
-                this.setState({redirect: 'Statistics'})
 
-            }
+            })
+        }
 
-        }).catch((error) => {
-            this.setState({loading:false})
-
-        })
     }
 
     render() {
-        const url = "url('" + AppResources.Defaults['background'] + "')";
+        const url = "url('" +background+ "')";
         return (
-
             <div className={"home"}>
-                <div style={{backgroundImage: url}} className={"bg"}/>
+                <div style={{background: url}} className={"bg"}/>
                 <ReactTooltip className={"tooltip"}/>
                 {(this.state.redirect === "Statistics") ? <Redirect to={'/statistics'}/> :
-
 
                     <section className={"content-wrapper"}>
                         <header>
@@ -111,11 +118,11 @@ export default class Home extends React.Component {
                                 <option value="EUN1">EUN</option>
                                 <option value="TR1">TR</option>
                             </select>
-                            <a href="#" onClick={() => this.makePlayerSearch()}><i className="fas fa-search"/></a>
+                            <div onClick={() => this.makePlayerSearch()}><i className="fas fa-search"/></div>
                             <label id={"error"}><i className="fas fa-exclamation"/>{this.state.errormsg}</label>
                             {(this.state.loading) ?
-                                <div className={"loading"}><img src={AppResources.Defaults.loading}
-                                                                               alt=""/></div>
+                                <div className={"loading"}><img src={loading}
+                                                                alt=""/></div>
                                 : null}
 
 

@@ -16,22 +16,22 @@ export default class Live extends React.Component {
 
 
     renderMatch() {
-        const blue = brain.splitLiveTeams().blue
-        const teamBlueBans=brain.splitLiveTeams().blueTeamBans
-        const teamRedBans=brain.splitLiveTeams().redTeamBans
-        const red = brain.splitLiveTeams().red
-        let bueTeam = []
-        let redTeam = []
-        blue.map((player) => {
+        const blue = brain.splitLiveTeams().blue;
+        const teamBlueBans=brain.splitLiveTeams().blueTeamBans;
+        const teamRedBans=brain.splitLiveTeams().redTeamBans;
+        const red = brain.splitLiveTeams().red;
+        let bueTeam = [];
+        let redTeam = [];
+        blue.forEach((player) => {
             const champInfo = brain.getChampionInfoById(player['championId'])
             const spells = brain.getPlayerSpells(player)
             const rankData= brain.getUserRanksByPlayer(player['userRank']).solo
             const percentage=(rankData.wins/(rankData.wins+rankData.losses)*100).toFixed(2)
-            const url = "url('" + 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champInfo['id']
+            const url = "url('" + 'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champInfo['id']
                 + '_0.jpg' + "')";
             const mastery = brain.getChampionStatsByPlayer(player)
             const ranked = brain.getUserRanksByPlayer(player['userRank']).solo.tier === 'unranked'
-            bueTeam.push(<section className={"player"}>
+            bueTeam.push(<section key={player['championId']} className={"player"}>
                 <div style={{backgroundImage: url}}/>
                 <section>
                     <div>{player['summonerName']}</div>
@@ -71,16 +71,16 @@ export default class Live extends React.Component {
         })
 
 
-        red.map((player) => {
+        red.forEach((player) => {
             const champInfo = brain.getChampionInfoById(player['championId'])
             const spells = brain.getPlayerSpells(player)
             const rankData= brain.getUserRanksByPlayer(player['userRank']).solo
             const percentage=(rankData.wins/(rankData.wins+rankData.losses)*100).toFixed(2)
-            const url = "url('" + 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champInfo['id']
+            const url = "url('" + 'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champInfo['id']
                 + '_0.jpg' + "')";
             const mastery = brain.getChampionStatsByPlayer(player)
             const ranked = brain.getUserRanksByPlayer(player['userRank']).solo.tier === 'unranked'
-            redTeam.push(<section className={"player"}>
+            redTeam.push(<section key={player['championId']} style={{border:'2px solid darkRed'}}  className={"player"}>
                 <div style={{backgroundImage: url}}/>
                 <section>
                     <div>{player['summonerName']}</div>
@@ -130,7 +130,7 @@ export default class Live extends React.Component {
                        {teamBlueBans.map((ban)=>{
                           const champ= brain.getChampionInfoById(ban['championId'])
                            return(
-                               <img data-tip={champ['name']} src={"http://ddragon.leagueoflegends.com/cdn/"+AppResources.PatchVersion+"/img/champion/"+champ['id']+".png"} alt=""/>
+                               <img data-tip={champ['name']} src={"https://ddragon.leagueoflegends.com/cdn/"+AppResources.PatchVersion+"/img/champion/"+champ['id']+".png"} alt=""/>
                            )
 
                        })}
@@ -144,7 +144,7 @@ export default class Live extends React.Component {
                         {teamRedBans.map((ban)=>{
                             const champ= brain.getChampionInfoById(ban['championId'])
                             return(
-                                <img data-tip={champ['name']} src={"http://ddragon.leagueoflegends.com/cdn/"+AppResources.PatchVersion+"/img/champion/"+champ['id']+".png"} alt=""/>
+                                <img data-tip={champ['name']} src={"https://ddragon.leagueoflegends.com/cdn/"+AppResources.PatchVersion+"/img/champion/"+champ['id']+".png"} alt=""/>
                             )
 
                         })}

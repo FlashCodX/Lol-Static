@@ -132,7 +132,7 @@ export default class Matches extends React.Component {
             const gameType = brain.getGameType(game)
             const gameCreation = brain.getTimeDiference(game)
             const url="url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+ brain.getChampionInfoById(brain.getMyPlayer(game).champion['championId'])['id']+ "_0.jpg')"
-            matches.push(<section className={"match"}>
+            matches.push(<section key={game['gameId']} className={"match"}>
                 <div className={"match-bg"} style={{backgroundImage:url}}/>
                 <section className={"section-a"}>
                     <div>{gameCreation.toUpperCase()}</div>

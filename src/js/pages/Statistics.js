@@ -11,13 +11,13 @@ import {Brain} from "../methods/Brain";
 import {Info} from "../methods/Info";
 import ReactTooltip from "react-tooltip";
 import {debuger} from "../debug";
-
+const background = require('./../../res/defaults/background.jpg');
 const info = new Info();
 const conversor = new Conversors();
 const brain = new Brain();
 export default class Statistics extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             selected: 'PROFILE',
             percentage: '0%',
@@ -29,12 +29,12 @@ export default class Statistics extends React.Component {
 
 
     getAllMatches() {
-        axios.get(debuger.url+'.netlify/functions/getMoreMatches?id=' + DataObj.data.accountDetails['accountId'] + '&server=' + 'euw1&index=' + DataObj.data.matchHistory.matchDetails.length).then((matches) => {
-            matches.data['matches'].map((game) => {
+        axios.get(debuger.url+'.netlify/functions/getMoreMatches?id=' + DataObj.data.accountDetails['accountId'] + '&server=' + DataObj.data.Server+'&index=' + DataObj.data.matchHistory.matchDetails.length).then((matches) => {
+            matches.data['matches'].forEach((game) => {
                 DataObj.data.matchHistory.matches.push(game)
-            })
+            });
 
-            matches.data['matchDetails'].map((game) => {
+            matches.data['matchDetails'].forEach((game) => {
                 if (DataObj.data.matchHistory.matchDetails.length !== DataObj.data.totalGames) {
 
                     DataObj.data.matchHistory.matchDetails.push(game)
@@ -97,10 +97,10 @@ export default class Statistics extends React.Component {
 
     render() {
         if (DataObj.data.valid) {
-            const url = "url('" + AppResources.Defaults['background'] + "')";
+            const url = "url('" + background + "')";
             const champInfo = brain.getChampionInfoById(DataObj.data.topChampions[0]['championId']);
             const champUrl = "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + champInfo['id'] + "_0.jpg')";
-            const MostPlayedLanes = brain.getMainLanes()
+          //  const MostPlayedLanes = brain.getMainLanes()
             return (
                 <div>
                     <main className={"statistics"}>
@@ -125,12 +125,7 @@ export default class Statistics extends React.Component {
                                 </div>
                                 <section>
                                     <label>{DataObj.data.username}</label>
-                                    <section>
-                                        <div></div>
-                                        <section>
-                                            <img src={""} alt=""/>
-                                        </section>
-                                    </section>
+
 
 
                                 </section>
@@ -188,7 +183,7 @@ export default class Statistics extends React.Component {
         const Top5 = brain.getTopChampions()
         Top5.map((champ) => {
             images.push(<img key={champ['id']}
-                             src={'http://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champ['id'] + '.png'}
+                             src={'https://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champ['id'] + '.png'}
                              alt=""/>)
         })
         return images

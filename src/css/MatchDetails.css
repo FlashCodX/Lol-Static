@@ -35,7 +35,8 @@
 .details > main > .performances {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(5, 250px);
+    justify-content: center;
+    grid-template-columns: repeat(4, 250px);
     overflow-x: auto;
     grid-gap: 1.2rem;
 }
@@ -61,6 +62,7 @@
 
 .details > main > .performances > section > div:first-child{
     font-size: 1.1rem;
+
 }
 
 .details > main > .performances > section > div:nth-child(2n){

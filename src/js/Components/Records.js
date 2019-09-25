@@ -54,22 +54,22 @@ export default class Records extends React.Component {
         const MostDeaths = brain.getMyPlayer(records.getMostDeaths());
         const MostAssists = brain.getMyPlayer(records.getMostAssists());
         const MostWards = brain.getMyPlayer(records.getMosWardsPlaced());
-        const WinningStreak = records.getLongestWinningStreak().streak
-        const WinningGameStreak = brain.getMyPlayer(records.getLongestWinningStreak().game)
+        const WinningStreak = records.getLongestWinningStreak().streak;
+        const WinningGameStreak = brain.getMyPlayer(records.getLongestWinningStreak().game);
         const LosingStreak = records.getLongestLosingStreak().streak
-        const LosingGameStreak = brain.getMyPlayer(records.getLongestLosingStreak().game)
-        const HighestDamage = brain.getMyPlayer(records.getMostDmgToChamps())
-        const HighestKdaGame = brain.getMyPlayer(records.getHighestKDA().game)
-        const HighestKda = records.getHighestKDA().kda.toFixed(2)
-        const ShortestWin = this.sectoh(records.getShortestWin().duration)
-        const ShortestWinGame = brain.getMyPlayer(records.getShortestWin().game)
-        const LongestGameG = brain.getMyPlayer(records.getLongestGame().game)
-        const LongestGame = records.getLongestGame().duration
-        const LongestLoss = records.getLongestLoss().duration
-        const LongestLossGame = brain.getMyPlayer(records.getLongestLoss().game)
+        const LosingGameStreak = brain.getMyPlayer(records.getLongestLosingStreak().game);
+        const HighestDamage = brain.getMyPlayer(records.getMostDmgToChamps());
+        const HighestKdaGame = brain.getMyPlayer(records.getHighestKDA().game);
+        const HighestKda = records.getHighestKDA().kda.toFixed(2);
+        const ShortestWin = this.sectoh(records.getShortestWin().duration);
+        const ShortestWinGame = brain.getMyPlayer(records.getShortestWin().game);
+        const LongestGameG = brain.getMyPlayer(records.getLongestGame().game);
+        const LongestGame = records.getLongestGame().duration;
+        const LongestLoss = records.getLongestLoss().duration;
+        const LongestLossGame = brain.getMyPlayer(records.getLongestLoss().game);
 
-        const QuickestLoss = records.getQuichestLoss().duration
-        const QuickestLossGame = brain.getMyPlayer(records.getQuichestLoss().game)
+        const QuickestLoss = records.getQuichestLoss().duration;
+        const QuickestLossGame = brain.getMyPlayer(records.getQuichestLoss().game);
         return (
             <div>
                 {(this.state.showDetails) ? <MatchDetails key={Date.now()} match={this.state.selectedMatch}/> : null}

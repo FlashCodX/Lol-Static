@@ -226,7 +226,7 @@ export class Brain {
         for (let i = 0; i <= 6; i++) {
             if (stats['item' + [i]] !== 0) {
 
-                items.push(<img key={stats['item' + [i]]}
+                items.push(<img key={i+stats['item'+i]+counter}
                                 src={'https://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/item/' + stats['item' + [i]] + '.png'}
                                 alt=""/>)
 
@@ -327,7 +327,7 @@ export class Brain {
     }
 
 
-    getMainLanes() {
+  /*  getMainLanes() {
 
         let lanes = [{jungle: 0}, {bottom: 0}, {top: 0}, {support: 0}, {mid: 0}]
         let imgs = []
@@ -348,7 +348,7 @@ export class Brain {
 
 
 
-    }
+    }*/
 
 
     getProfileIconUrl(iconId) {
@@ -469,7 +469,7 @@ export class Brain {
                             const items = this.getItems(player['stats'])
                             teams.teamBlue.push(<section>
                                 <img key={champion['id']}
-                                     src={'http://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champion['id'] + '.png'}
+                                     src={'https://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champion['id'] + '.png'}
                                      alt=""/>
                                 <div>{id['player']['summonerName']}</div>
                                 <section className={"spells"}>
@@ -512,7 +512,7 @@ export class Brain {
                             const items2 = this.getItems(player['stats'])
                             teams.teamRed.push(<section>
                                 <img key={champion2['id']}
-                                     src={'http://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champion2['id'] + '.png'}
+                                     src={'https://ddragon.leagueoflegends.com/cdn/' + AppResources.PatchVersion + '/img/champion/' + champion2['id'] + '.png'}
                                      alt=""/>
                                 <div>{id['player']['summonerName']}</div>
                                 <section className={"spells"}>

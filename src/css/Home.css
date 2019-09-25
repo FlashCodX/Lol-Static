@@ -41,7 +41,11 @@
     text-indent: 5px;
 }
 
-.home > .content-wrapper .section-a a i {
+.home > .content-wrapper .section-a div{
+    cursor: pointer;
+}
+
+.home > .content-wrapper .section-a div i {
     font-size: 50px;
     padding: 1.1rem;
     border-right: 4px white solid;
@@ -157,7 +161,7 @@ display: none;
         font-size: 15px;
     }
 
-    .home > .content-wrapper .section-a a i {
+    .home > .content-wrapper .section-a div i {
         font-size: 35px;
 
     }

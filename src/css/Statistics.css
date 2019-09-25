@@ -19,7 +19,6 @@
 }
 
 
-
 .statistics > .header .profile-bg {
     position: absolute;
     width: 100%;
@@ -38,7 +37,7 @@
 
 }
 
-.statistics >.header > .left > div > section > div {
+.statistics > .header > .left > div > section > div {
     width: 160%;
     margin: 0 .5rem;
     text-align: center;
@@ -48,7 +47,7 @@
     position: relative;
 }
 
-.statistics >.header > .left .progress {
+.statistics > .header > .left .progress {
     position: absolute;
     width: 30%;
     height: 100%;
@@ -56,29 +55,29 @@
     background: darkblue;
 }
 
-.statistics >.header > .left > div {
+.statistics > .header > .left > div {
     display: grid;
     align-items: end;
 }
 
 
-.statistics >.header > .left > div img {
+.statistics > .header > .left > div img {
     padding: .5rem;
     width: 5rem;
 }
 
-.statistics >.header > .left > section label {
+.statistics > .header > .left > section label {
     font-size: 1.6rem;
     text-transform: uppercase;
 }
 
-.statistics >.header > .left > section img {
+.statistics > .header > .left > section img {
     width: 2.5rem;
 
 }
 
 
-.statistics >.header > .left > section > section {
+.statistics > .header > .left > section > section {
     display: grid;
     align-items: center;
     grid-gap: .5rem;
@@ -86,17 +85,17 @@
     grid-template-columns: 1fr 4fr;
 }
 
-.statistics >.header > .left > section > section > div {
+.statistics > .header > .left > section > section > div {
     font-size: 1.2rem;
 }
 
-.statistics >.header > .left > section > section > section {
+.statistics > .header > .left > section > section > section {
     display: grid;
     grid-template-columns: 1fr 2fr;
     justify-content: start;
 }
 
-.statistics >.header > .mid {
+.statistics > .header > .mid {
     display: grid;
     grid-template-rows: auto;
     grid-gap: .4rem;
@@ -104,26 +103,26 @@
     align-items: start;
 }
 
-.statistics >.header >.mid > div:nth-child(2n) {
+.statistics > .header > .mid > div:nth-child(2n) {
     font-size: 1.5rem;
     text-transform: uppercase;
 }
 
-.statistics >.header >.mid > img {
+.statistics > .header > .mid > img {
     margin: auto;
     width: 9rem;
 }
 
-.statistics >.header >.mid div:nth-child(3n) {
+.statistics > .header > .mid div:nth-child(3n) {
     color: #00AB3A;
     font-size: 2.5rem;
 }
 
-.statistics >.header >.mid div:nth-child(4n) {
+.statistics > .header > .mid div:nth-child(4n) {
     font-size: 1.5rem;
 }
 
-.statistics >.header >.right {
+.statistics > .header > .right {
     display: grid;
     align-content: end;
     justify-items: end;
@@ -131,39 +130,34 @@
     grid-gap: .3rem;
 }
 
-.statistics >.header >.right > img {
+.statistics > .header > .right > img {
     width: 3.5rem;
     border-radius: 50%;
     margin-bottom: .5rem;
 }
 
 
-
-.statistics >.header >.right div {
+.statistics > .header > .right div {
     background: darkblue;
 }
-
 
 
 .statistics .nav {
     width: 60%;
     text-align: center;
     display: grid;
+
     grid-gap: 1rem;
     grid-template-columns: repeat(4, 1fr);
     margin: .3rem auto;
 }
 
 .statistics .nav > div {
-    opacity: 0.8;
     font-size: 1.3rem;
     cursor: pointer;
     position: relative;
 }
 
-.statistics .nav div:hover {
-    opacity: 1;;
-}
 
 
 @media (max-width: 700px) {
@@ -174,20 +168,20 @@
 
     }
 
-    .statistics >.header >  .mid > img {
+    .statistics > .header > .mid > img {
         width: 8rem;
     }
 
-    .statistics >.header >   .mid div:nth-child(2n) {
+    .statistics > .header > .mid div:nth-child(2n) {
         font-size: 1rem;
     }
 
-    .statistics >.header >    .mid div:nth-child(3n) {
+    .statistics > .header > .mid div:nth-child(3n) {
         color: #00AB3A;
         font-size: 1.5rem;
     }
 
-    .statistics >.header >   .mid div:nth-child(4n) {
+    .statistics > .header > .mid div:nth-child(4n) {
         font-size: 1rem;
     }
 
@@ -221,10 +215,7 @@
     }
 
 
-
-
-
-    .statistics >.header >  .right > img {
+    .statistics > .header > .right > img {
         width: 3rem;
         margin-bottom: .5rem;
     }

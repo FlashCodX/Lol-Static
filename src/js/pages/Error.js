@@ -1,10 +1,11 @@
 import React from 'react'
 import {AppResources, DataObj} from "../../config";
 import {Redirect} from "react-router-dom";
+const background = require('./../../res/defaults/background.jpg');
 
 export default class Error extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             red: false
         }
@@ -21,7 +22,7 @@ export default class Error extends React.Component {
     }
 
     render() {
-        const url = "url('" + AppResources.Defaults['background'] + "')";
+        const url = "url('" + background + "')";
 
         return (
             <div>

@@ -7,7 +7,7 @@ import Matches from "./Matches";
 const brain = new Brain();
 export default class History extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             matches: DataObj.data.matchHistory.matchDetails,
             currentlyShowing: 5,
@@ -35,9 +35,9 @@ export default class History extends React.Component {
     }
 
     search() {
-        let matches = []
-        DataObj.data.matchHistory.matchDetails.map((game) => {
-            const championName = brain.getChampionInfoById(brain.getMyPlayer(game).champion['championId'])['name'].toLowerCase()
+        let matches = [];
+        DataObj.data.matchHistory.matchDetails.forEach((game) => {
+            const championName = brain.getChampionInfoById(brain.getMyPlayer(game).champion['championId'])['name'].toLowerCase();
             if (championName.includes(this.state.text.toLowerCase()) || this.state.text === '') {
                 if (this.state.gameType==='All'){
                     matches.push(game)
@@ -85,7 +85,7 @@ export default class History extends React.Component {
                 }
 
             }
-        })
+        });
         this.setState({matches: matches})
     }
 

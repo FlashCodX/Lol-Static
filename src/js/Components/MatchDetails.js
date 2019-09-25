@@ -266,7 +266,7 @@ export default class MatchDetails extends React.Component {
          const MostGold = filter.getTopGoldInGame(game)
          const HighestKda = filter.getHighestKdaInGame(game)
          const MostWards = filter.getTopWardsPlacedInGame(game)*/
-        const url = "url('" + 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg' + "')";
+        const url = "url('" + 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg' + "')";
         const game = this.state.game
         const topCs = topScores.getTopCsInGame(game)
 
@@ -299,14 +299,14 @@ export default class MatchDetails extends React.Component {
                                 <div>MOST MINIONS KILLED</div>
                                 <div>{topCs.champion.totalCs}</div>
                                 <div>{topCs.account['player']['summonerName']}</div>
-                                <div  style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(topCs.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                <div  style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(topCs.champion['championId'])['id'] + "_0.jpg')"}}/>
                             </section>
 
                             <section>
                                 <div>MOST DAMAGE DEALT TO CHAMPS</div>
                                 <div style={{color:'red'}}>{convertor.beautify(topDmg.champion['stats']['totalDamageDealtToChampions'])}</div>
                                 <div>{topDmg.account['player']['summonerName']}</div>
-                                <div  style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(topDmg.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                <div  style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(topDmg.champion['championId'])['id'] + "_0.jpg')"}}/>
 
                             </section>
 
@@ -314,7 +314,7 @@ export default class MatchDetails extends React.Component {
                                 <div>MOST GOLD</div>
                                 <div>{convertor.beautify(MostGold.champion['stats']['goldEarned'])}</div>
                                 <div>{MostGold.account['player']['summonerName']}</div>
-                                <div  style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostGold.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                <div  style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(MostGold.champion['championId'])['id'] + "_0.jpg')"}}/>
 
                             </section>
 
@@ -323,7 +323,7 @@ export default class MatchDetails extends React.Component {
                                 <div>HIGHEST KDA</div>
                                 <div>{HighestKda.kda.toFixed(2)}</div>
                                 <div>{HighestKda.account['player']['summonerName']}</div>
-                                <div  style={{backgroundImage: "url('http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(HighestKda.champion['championId'])['id'] + "_0.jpg')"}}/>
+                                <div  style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(HighestKda.champion['championId'])['id'] + "_0.jpg')"}}/>
 
                             </section>
 
