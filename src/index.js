@@ -38,7 +38,6 @@ for (let i = 0; i < masteries.length; i++) {
 
     AppResources.Masteries[(masteries[i] + i).split('.')[0]] = require(`./res/masteries/${masteries[i]}`)
 }
-console.log(AppResources)
 
 
 
