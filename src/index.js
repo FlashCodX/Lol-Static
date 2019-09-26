@@ -9,6 +9,14 @@ import Error from "./js/pages/Error";
 import axios from 'axios'
 import {AppResources} from "./config";
 import {debuger} from "./js/debug";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init(
+    {
+        delay: 0,
+        duration: 1500
+    });
 
 
 const RiotResources = ['champion.json', 'item.json', 'summoner.json', 'profileicon.json'];
@@ -63,4 +71,4 @@ axios.get(debuger.url + '.netlify/functions/getFreeChampions?server=euw1').then(
 });
 
 
-serviceWorker.register();
+serviceWorker.unregister();

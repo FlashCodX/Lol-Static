@@ -80,7 +80,7 @@ export default class Records extends React.Component {
                     <section className={"records-wrapper"}>
 
 
-                        <div className={"box"}>
+                        <div className={"box"} >
                             <div
                                 style={{backgroundImage: "url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + brain.getChampionInfoById(QuickestLossGame.champion['championId'])['id'] + "_0.jpg')"}}/>
                             <section>

@@ -8,11 +8,14 @@ import ReactTooltip from 'react-tooltip';
 import axios from "axios";
 import {debuger} from "../debug";
 
+
+
 const background = require('./../../res/defaults/background.jpg');
 const loading = require('./../../res/defaults/loading.gif');
 
 const info = new Info();
 const UrlExtract = new UrlsExtract();
+
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -43,9 +46,9 @@ export default class Home extends React.Component {
             const url = UrlExtract.getChampionUrls(champ);
             const Info = info.getChampionInfoById(champ);
             freeChampions.push(
-                <div key={Info['key']}>
-                    <img src={url.loading} alt=""/>
-                    <section className={"roles"}>
+                <div  key={Info['key']}>
+                    <img src={url.loading} alt="" data-aos="fade-in"/>
+                    <section className={"roles"} >
                         {this.renderRoles(Info)}
                     </section>
                     <label>{Info['name']}</label>
@@ -56,7 +59,7 @@ export default class Home extends React.Component {
         return freeChampions
     }
 
-    checkEnter(e){
+   checkEnter(e){
         if (e.keyCode===13){
             this.makePlayerSearch()
         }
@@ -106,14 +109,14 @@ export default class Home extends React.Component {
                 <div style={{background: url}} className={"bg"}/>
                 <ReactTooltip className={"tooltip"}/>
                 {(this.state.redirect === "Statistics") ? <Redirect to={'/statistics'}/> :
-
-                    <section className={"content-wrapper"}>
-                        <header>
+                    <section className={"content-wrapper"} >
+                        <header data-aos="fade-" >
                             League Of Legends Summoners&Game Statistics
                         </header>
-                        <section className={"section-a"}>
+
+                        <section className={"section-a"} data-aos="fade-right">
                             <input type={"text"} placeholder={"Summoner Name"} onKeyDown={(e)=>this.checkEnter(e)}
-                                   onChange={(e) => this.onNameChange(e)}/>
+                                   onChange={(e) => this.onNameChange(e)} />
                             <select name="server" id="server" onChange={(e) => this.onServerChange(e)}>
                                 <option value="EUW1">EUW</option>
                                 <option value="RU">RU</option>
