@@ -71,4 +71,4 @@ axios.get(debuger.url + '.netlify/functions/getFreeChampions?server=euw1').then(
 });
 
 
-serviceWorker.unregister();
+serviceWorker.register();
