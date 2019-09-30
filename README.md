@@ -17,7 +17,7 @@
 
   ### Live Match 
  - On the live match it's possible to see the win percentage of every player in the game as well the mastery and points of the champion every summoner has picked.
- ![history](images/history.gif)
+ ![history](images/live.gif)
 
  ### Match History 
  - On the match History section you have a filter where you can pick between game types like Normal games and Ranked and you can also filter them by champion name.
